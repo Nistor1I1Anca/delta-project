@@ -9,7 +9,6 @@ var apiUrl = "http://alpha.apexcode.ro/api";
     }).then(function(datele){
         for(var i=0; i< datele.length; i++){
             // JSON.stringify - converteste un JSON in string
-            document.getElementById("container").innerHTML +=
-            "<li>"+ JSON.stringify(datele[i]) + "</li>";
+            document.getElementById("id-products").value = JSON.stringify(datele[1]);
     }
 });
