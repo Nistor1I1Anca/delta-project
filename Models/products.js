@@ -5,10 +5,10 @@ function Products(){
 Products.prototype.fetchData = function(){
     //daca nu salvam this curent, inauntru cand suprascriu id-ul, o sa am alt current context: this
     var productsThis = this;
-    return $.ajax({
-        url: 'http://delta.apexcode.ro/api/products',
+    fetch(
+       'http://delta.apexcode.ro/api/products',{
         method: 'GET'
-    })
+       })
     .then(function(products){
         for(var i = 0; i < products.length; i++){
             var product = products[i];
