@@ -22,23 +22,22 @@ Customer.prototype.fetchData = function(id) {
 };
 
 Customer.prototype.postData = function(data) {
-  fetch("http://delta.apexcode.ro/api/customers", {
+  $.ajax({
+    url: "http://delta.apexcode.ro/api/customers",
     method: "POST",
-    body: JSON.stringify(data),
-    headers:{
-      'Content-Type': 'application/json'
-    }
+    headers: { "Content-Type": "application/json" },
+    data: data
+  })
+    // .then(resp => resp.json())
+    .then(jsonResp => console.log(jsonResp))
+    .catch(e => alert(`post error: ${e}`));
+};
+
+Customer.prototype.deleteData = function(id) {
+  fetch("http://delta.apexcode.ro/api/customers/" + id, {
+    method: "DELETE"
   })
     .then(resp => resp.json())
     .then(jsonResp => console.log(jsonResp))
     .catch(e => alert(`post error: ${e}`));
 };
-
-Customer.prototype.deleteData = function(id){
-  fetch("http://delta.apexcode.ro/api/customers/"+ id,{
-   method:"DELETE"
-  })
-  .then(resp => resp.json())
-  .then(jsonResp => console.log(jsonResp))
-  .catch(e => alert(`post error: ${e}`));
-}
