@@ -33,6 +33,7 @@ Customer.prototype.postData = function(data) {
     .catch(e => alert(`post error: ${e}`));
 };
 
+// to be linked to customersView
 Customer.prototype.updateData = function(data) {
   fetch("http://delta.apexcode.ro/api/customers/" + id, {
     method: "PUT",
