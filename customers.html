@@ -21,6 +21,19 @@
       <div class="row">
         <div class="input-group input-group-sm mb-3">
           <div class="input-group-prepend">
+            <span class="input-group-text">Id</span>
+          </div>
+          <input
+            placeholder="use only in case of update"
+            type="text"
+            id="id-customers"
+            class="col-md-6 col-sm-12"
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-group input-group-sm mb-3">
+          <div class="input-group-prepend">
             <span class="input-group-text">Name</span>
           </div>
           <input type="text" id="name-customers" class="col-md-6 col-sm-12" />
@@ -35,23 +48,21 @@
         </div>
       </div>
       <div class="row">
-        <button type="button" id="customers-submit" class="btn btn-secondary">
-          Submit
+        <button
+          type="button"
+          id="customers-post"
+          class="btn btn-secondary mr-3"
+        >
+          Post
         </button>
-      </div>
-      <div class="row">
-        <h2>Delete</h2>
-      </div>
-      <div class="row">
-        <div class="input-group input-group-sm mb-3">
-          <div class="input-group-prepend">
-            <span class="input-group-text">ID</span>
-          </div>
-          <input type="text" id="id-customers" class="col-md-6 col-sm-12" />
-        </div>
-      </div>
-      <div class="row">
-        <button type="button" id="customers-delete" class="btn btn-secondary">
+        <button
+          type="button"
+          id="customers-update"
+          class="btn btn-secondary ml-3 mr-3"
+        >
+          Update
+        </button>
+        <button type="button" id="customers-delete" class="btn btn-secondary ml-3">
           Delete
         </button>
       </div>
