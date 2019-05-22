@@ -33,6 +33,15 @@ Customer.prototype.postData = function(data) {
     .catch(e => alert(`post error: ${e}`));
 };
 
+Customer.prototype.updateData = function(data) {
+  fetch("http://delta.apexcode.ro/api/customers/" + id, {
+    method: "PUT",
+    body: JSON.stringify(data)
+  })
+    .then(resp => resp.json())
+    .then(jsonResp => console.log(jsonResp));
+};
+
 Customer.prototype.deleteData = function(id) {
   fetch("http://delta.apexcode.ro/api/customers/" + id, {
     method: "DELETE"
