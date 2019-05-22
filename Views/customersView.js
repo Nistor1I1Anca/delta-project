@@ -1,16 +1,17 @@
 window.onload = function() {
   var customers = new Customers();
   customers.fetchData();
-  console.log(customers.items)
+  console.log(customers.items);
 
   var customer = new Customer();
-  addOnSubmitEventListner(customer);
-  addOnDeleteEventListner(customer);
+  addOnPostEventListner(customer); //post
+  addOnDeleteEventListner(customer); //delete
+  addOnUpdateEventListner(customer); //put
 };
 
 // event de post new customer
-function addOnSubmitEventListner(customer) {
-  document.getElementById("customers-submit").addEventListener("click", () => {
+function addOnPostEventListner(customer) {
+  document.getElementById("customers-post").addEventListener("click", () => {
     let data = gatherPostInputData();
     customer.postData(data);
   });
@@ -24,6 +25,15 @@ function gatherPostInputData() {
   };
 }
 
+function addOnUpdateEventListner(customer) {
+  document.getElementById("customers-update").addEventListener("click", () => {
+    let data = gatherPostInputData();
+    let id = document.getElementById("id-customers").value;
+    console.log(data);
+    console.log(id);
+    customer.updateData(data, id);
+  });
+}
 
 // event de delete customer
 function addOnDeleteEventListner(customer) {

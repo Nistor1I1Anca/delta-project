@@ -34,13 +34,16 @@ Customer.prototype.postData = function(data) {
 };
 
 // to be linked to customersView
-Customer.prototype.updateData = function(data) {
+Customer.prototype.updateData = function(data, id) {
   fetch("http://delta.apexcode.ro/api/customers/" + id, {
     method: "PUT",
     body: JSON.stringify(data)
   })
     .then(resp => resp.json())
-    .then(jsonResp => console.log(jsonResp));
+    .then(jsonResp => {
+      console.log(jsonResp);
+      console.log(data);
+    });
 };
 
 Customer.prototype.deleteData = function(id) {
