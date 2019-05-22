@@ -20,3 +20,35 @@ Product.prototype.fetchData = function(id) {
       alert("fetch error:" + e);
     });
 };
+
+// to be linked to productsView
+Product.prototype.postData = function(data) {
+  fetch("http://delta.apexcode.ro/api/products", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data)
+  })
+    .then(resp => resp.json())
+    .then(jsonResp => console.log(jsonResp))
+    .catch(e => alert(`post error: ${e}`));
+};
+
+// to be linked to productsView
+Product.prototype.updateData = function(data) {
+  fetch("http://delta.apexcode.ro/api/products/" + id, {
+    method: "PUT",
+    body: JSON.stringify(data)
+  })
+    .then(resp => resp.json())
+    .then(jsonResp => console.log(jsonResp));
+};
+
+// to be linked to productsView
+Customer.prototype.deleteData = function(id) {
+  fetch("http://delta.apexcode.ro/api/products/" + id, {
+    method: "DELETE"
+  })
+    .then(resp => resp.json())
+    .then(jsonResp => console.log(jsonResp))
+    .catch(e => alert(`post error: ${e}`));
+};
