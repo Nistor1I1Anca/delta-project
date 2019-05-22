@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Customers</title>
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <!-- <script src='main.js'></script> -->
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="row">
+        <h1>Customers</h1>
+      </div>
+      <div class="row">
+        <div class="input-group input-group-sm mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Name</span>
+          </div>
+          <input type="text" id="name-customers" class="col-md-6 col-sm-12" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-group input-group-sm mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">CUI</span>
+          </div>
+          <input type="text" id="CUI-customers" class="col-md-6 col-sm-12" />
+        </div>
+      </div>
+      <div class="row">
+        <button type="button" id="customers-submit" class="btn btn-secondary">
+          Submit
+        </button>
+      </div>
+      <div class="row">
+        <h2>Delete</h2>
+      </div>
+      <div class="row">
+        <div class="input-group input-group-sm mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">ID</span>
+          </div>
+          <input type="text" id="id-customers" class="col-md-6 col-sm-12" />
+        </div>
+      </div>
+      <div class="row">
+        <button type="button" id="customers-delete" class="btn btn-secondary">
+          Delete
+        </button>
+      </div>
+    </div>
+
+    <script src=".\Views\customersView.js"></script>
+    <script src=".\Models\customer.js"></script>
+    <script src=".\Models\customers.js"></script>
+  </body>
+</html>

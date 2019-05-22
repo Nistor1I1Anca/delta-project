@@ -8,14 +8,14 @@ Products.prototype.fetchData = function(){
     fetch(
        'http://delta.apexcode.ro/api/products',{
         method: 'GET'
-       })
+       }).then(resp=>resp.json())
     .then(function(products){
         for(var i = 0; i < products.length; i++){
             var product = products[i];
             var productModel = new Product();
-            productModel.id = product.id;
-            productModel.name = product.name;
-            productModel.type = product.type;
+            productModel.Id = product.Id;
+            productModel.Name = product.Name;
+            productModel.ProductType = product.ProductType;
             productsThis.items.push(productModel);
         }
     })

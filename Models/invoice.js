@@ -5,7 +5,9 @@ function Invoice(){
     this.Date = "";
     this.SupplierId = null;
     this.CustomerId = null;
-    this.InvoiceItems = null; //trebuie sa creem clasa InvoiceItem
+    this.InvoiceItems = {}; 
+    //l-am initializat cu un empty object; aduce InvoiceItems de la server. 
+    //trebuie sa creem clasa InvoiceItem ? 
 }
 
 Invoice.prototype.fetchData = function(id){
