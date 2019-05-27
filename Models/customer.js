@@ -8,7 +8,12 @@ Customer.prototype.fetchData = function(id) {
   //daca nu salvam this curent, inauntru cand suprascriu id-ul, o sa am alt current context: this
   var customerThis = this;
   fetch("http://delta.apexcode.ro/api/customers/" + id, {
-    method: "GET"
+    method: "GET",
+    mode: "cors",
+    headers: {
+      "Accept": "application/json",
+      "Content-Type": "application/json"
+    }
   })
     .then(resp => resp.json())
     .then(function(customer) {

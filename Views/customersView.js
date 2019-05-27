@@ -1,4 +1,4 @@
-window.onload = function() {
+window.onload = function() {  
   var customers = new Customers();
   customers.fetchData();
   console.log(customers.items);
