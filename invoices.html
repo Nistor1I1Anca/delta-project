@@ -1,25 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Invoices</title>
 
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    />
-    <!-- <script src='main.js'></script> -->
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Invoices</title>
 
-  <body>
-    <h3>Invoices</h3>
-    
+  <link rel="stylesheet"  href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+  <!-- <script src='main.js'></script> -->
+  <link rel="stylesheet" type="text/css" href="invoices.css">
+</head>
 
-    <script src=".\Views\invoicesView.js"></script>
-    <script src=".\Models\invoice.js"></script>
-    <script src=".\Models\invoices.js"></script>
+<body>
+  <h3>Invoices</h3>
 
-  </body>
+  <div class="container">
+    <div class="row">
+      <a href="#" class="btn btn-primary btn-lg" id="add">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        <span><strong>Add</strong></span>
+      </a>
+
+      <a href="#" class="btn btn-secondary btn-lg" id="edit">
+        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+        <span><strong>Edit</strong></span>
+      </a>
+
+      <a href="#" class="btn btn-danger btn-lg" id="delete">
+        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+        <span><strong>Delete</strong></span>
+      </a>
+    </div>
+  </div>
+
+  <table class="table-hover table table-bordered " id="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">No.crt</th>
+        <th scope="col">Series</th>
+        <th scope="col">Number</th>
+        <th scope="col">Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td>AAAA</td>
+        <td>22323</td>
+        <td>06/06/2019</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>AB56</td>
+        <td>423</td>
+        <td>05/02/2019</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>DS56</td>
+        <td>5633</td>
+        <td>04/01/2019</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+  <script src=".\Views\invoicesView.js"></script>
+  <script src=".\Models\invoice.js"></script>
+  <script src=".\Models\invoices.js"></script>
+
+</body>
+
 </html>
