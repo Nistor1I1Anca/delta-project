@@ -6,7 +6,7 @@ function Customer() {
 
 Customer.prototype.fetchData = function(id) {
   //daca nu salvam this curent, inauntru cand suprascriu id-ul, o sa am alt current context: this
-  var customerThis = this;
+  let customerThis = this;
   fetch("http://delta.apexcode.ro/api/customers/" + id, {
     method: "GET",
     mode: "cors",
@@ -38,7 +38,6 @@ Customer.prototype.postData = function(data) {
     .catch(e => alert(`post error: ${e}`));
 };
 
-// to be linked to customersView
 Customer.prototype.updateData = function(data, id) {
   fetch("http://delta.apexcode.ro/api/customers/" + id, {
     method: "PUT",

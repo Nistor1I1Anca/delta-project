@@ -12,7 +12,7 @@ function Invoice() {
 
 Invoice.prototype.fetchData = function(id) {
   //daca nu salvam this curent, inauntru cand suprascriu id-ul, o sa am alt current context: this
-  var invoiceThis = this;
+  let invoiceThis = this;
   fetch("http://delta.apexcode.ro/api/invoices/" + id, {
     method: "GET"
   })

@@ -2,19 +2,19 @@ function Suppliers() {
     this.items = [];
   }
   
-  Suppliers.prototype.fetchData = function() {
+  Suppliers.prototype.fetchData = async function() {
     //daca nu salvam this curent, inauntru cand suprascriu id-ul, o sa am alt current context: this
-    var suppliersThis = this;
-    fetch("http://delta.apexcode.ro/api/suppliers", {
+    let suppliersThis = this;
+    await fetch("http://delta.apexcode.ro/api/suppliers", {
       method: "GET"
     })
       .then(function(resp) {
         return resp.json();
       })
       .then(function(suppliers) {
-        for (var i = 0; i < suppliers.length; i++) {
-          var supplier = suppliers[i];
-          var supplierModel = new Supplier();
+        for (let i = 0; i < suppliers.length; i++) {
+          let supplier = suppliers[i];
+          let supplierModel = new Supplier();
   
           supplierModel.Id = supplier.Id;
           supplierModel.Name = supplier.Name;

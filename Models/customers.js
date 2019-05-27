@@ -2,19 +2,19 @@ function Customers() {
   this.items = [];
 }
 
-Customers.prototype.fetchData = function() {
+Customers.prototype.fetchData = async function() {
   //daca nu salvam this curent, inauntru cand suprascriu id-ul, o sa am alt current context: this
-  var customersThis = this;
-  fetch("http://delta.apexcode.ro/api/customers", {
+  let customersThis = this;
+  await fetch("http://delta.apexcode.ro/api/customers", {
     method: "GET"
   })
     .then(function(resp) {
       return resp.json();
     })
     .then(function(customers) {
-      for (var i = 0; i < customers.length; i++) {
-        var customer = customers[i];
-        var customerModel = new Customer();
+      for (let i = 0; i < customers.length; i++) {
+        let customer = customers[i];
+        let customerModel = new Customer();
 
         customerModel.Id = customer.Id;
         customerModel.Name = customer.Name;
