@@ -44,7 +44,7 @@ Product.prototype.updateData = function(data) {
 };
 
 // to be linked to productsView
-Customer.prototype.deleteData = function(id) {
+Product.prototype.deleteData = function(id) {
   fetch("http://delta.apexcode.ro/api/products/" + id, {
     method: "DELETE"
   })
