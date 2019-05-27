@@ -6,7 +6,7 @@ function Product() {
 
 Product.prototype.fetchData = function(id) {
   //daca nu salvam this curent, inauntru cand suprascriu id-ul, o sa am alt current context: this
-  var productThis = this;
+  let productThis = this;
   fetch("http://delta.apexcode.ro/api/products/" + id, {
     method: "GET"
   })

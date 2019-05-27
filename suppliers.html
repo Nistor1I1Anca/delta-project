@@ -14,7 +14,59 @@
   </head>
 
   <body>
-    <h3>Suppliers</h3>
+    <div class="container">
+      <div class="row">
+        <h1>Suppliers</h1>
+      </div>
+      <div class="row">
+        <div class="input-group input-group-sm mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Id</span>
+          </div>
+          <input
+            placeholder="use only in case of update"
+            type="text"
+            id="id-suppliers"
+            class="col-md-6 col-sm-12"
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-group input-group-sm mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Name</span>
+          </div>
+          <input type="text" id="name-suppliers" class="col-md-6 col-sm-12" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-group input-group-sm mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">CUI</span>
+          </div>
+          <input type="text" id="CUI-suppliers" class="col-md-6 col-sm-12" />
+        </div>
+      </div>
+      <div class="row">
+        <button
+          type="button"
+          id="suppliers-post"
+          class="btn btn-secondary mr-3"
+        >
+          Post
+        </button>
+        <button
+          type="button"
+          id="suppliers-update"
+          class="btn btn-secondary ml-3 mr-3"
+        >
+          Update
+        </button>
+        <button type="button" id="suppliers-delete" class="btn btn-secondary ml-3">
+          Delete
+        </button>
+      </div>
+    </div>
     
 
     <script src=".\Views\suppliersView.js"></script>

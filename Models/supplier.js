@@ -6,7 +6,7 @@ function Supplier() {
 
 Supplier.prototype.fetchData = function(id) {
   //daca nu salvam this curent, inauntru cand suprascriu id-ul, o sa am alt current context: this
-  var supplierThis = this;
+  let supplierThis = this;
   fetch("http://delta.apexcode.ro/api/suppliers/" + id, {
     method: "GET"
   })

@@ -2,10 +2,10 @@ function Invoices(){
     this.items = [];
 }
 
-Invoices.prototype.fetchData = function(){
+Invoices.prototype.fetchData = async function(){
     //daca nu salvam this curent, inauntru cand suprascriu id-ul, o sa am alt current context: this
-    var invoicesThis = this;
-    fetch(
+    let invoicesThis = this;
+    await fetch(
         'http://delta.apexcode.ro/api/invoices',{
          method: 'GET'
     })
@@ -13,9 +13,9 @@ Invoices.prototype.fetchData = function(){
         return resp.json();
     })
     .then(function(invoices){
-        for(var i = 0; i < invoices.length; i++){
-            var invoice = invoices[i];
-            var invoiceModel = new Invoice();
+        for(let i = 0; i < invoices.length; i++){
+            let invoice = invoices[i];
+            let invoiceModel = new Invoice();
             invoiceModel.Id = invoice.Id;
             invoiceModel.Series = invoice.Series;
             invoiceModel.Number = invoice.Number;

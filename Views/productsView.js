@@ -1,5 +1,10 @@
 window.onload = function() {
-  var products = new Products();
-  products.fetchData();
-  console.log(products.items);
+  getData();
 };
+
+async function getData() {
+  let products = new Products();
+  await products.fetchData();
+  console.log(products.items);
+  console.log(products.items[1]);
+}

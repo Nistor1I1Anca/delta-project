@@ -1,13 +1,17 @@
-window.onload = function() {  
-  var customers = new Customers();
-  customers.fetchData();
-  console.log(customers.items);
+window.onload = function() {
+  getData();
 
-  var customer = new Customer();
+  let customer = new Customer();
   addOnPostEventListner(customer); //post
   addOnDeleteEventListner(customer); //delete
   addOnUpdateEventListner(customer); //put
 };
+async function getData() {
+  let customers = new Customers();
+  await customers.fetchData();
+  console.log(customers.items[0]);
+  console.log(customers.items);
+}
 
 // event de post new customer
 function addOnPostEventListner(customer) {
