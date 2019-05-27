@@ -34,7 +34,7 @@ Invoice.prototype.fetchData = function(id) {
 };
 
 // to be linked to invoicesView
-Product.prototype.postData = function(data) {
+Invoice.prototype.postData = function(data) {
   fetch("http://delta.apexcode.ro/api/products", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -46,7 +46,7 @@ Product.prototype.postData = function(data) {
 };
 
 // to be linked to invoicesView
-Product.prototype.updateData = function(data) {
+Invoice.prototype.updateData = function(data) {
   fetch("http://delta.apexcode.ro/api/products/" + id, {
     method: "PUT",
     body: JSON.stringify(data)
@@ -56,7 +56,7 @@ Product.prototype.updateData = function(data) {
 };
 
 // to be linked to invoicesView
-Customer.prototype.deleteData = function(id) {
+Invoice.prototype.deleteData = function(id) {
   fetch("http://delta.apexcode.ro/api/products/" + id, {
     method: "DELETE"
   })
