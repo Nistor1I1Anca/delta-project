@@ -11,7 +11,7 @@ Customer.prototype.fetchData = function(id) {
     method: "GET",
     mode: "cors",
     headers: {
-      "Accept": "application/json",
+      Accept: "application/json",
       "Content-Type": "application/json"
     }
   })
@@ -27,13 +27,12 @@ Customer.prototype.fetchData = function(id) {
 };
 
 Customer.prototype.postData = function(data) {
-  $.ajax({
-    url: "http://delta.apexcode.ro/api/customers",
+  fetch("http://delta.apexcode.ro/api/customers", {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
-    data: data
+    headers: { "Content-Type": "application/json", Accept: "application/json" },
+    body: JSON.stringify(data)
   })
-    // .then(resp => resp.json())
+    .then(resp => resp.json())
     .then(jsonResp => console.log(jsonResp))
     .catch(e => alert(`post error: ${e}`));
 };
@@ -41,13 +40,15 @@ Customer.prototype.postData = function(data) {
 Customer.prototype.updateData = function(data, id) {
   fetch("http://delta.apexcode.ro/api/customers/" + id, {
     method: "PUT",
+    headers: { "Content-Type": "application/json", Accept: "application/json" },
     body: JSON.stringify(data)
   })
-    .then(resp => resp.json())
+    // .then(resp => resp.json())
     .then(jsonResp => {
       console.log(jsonResp);
       console.log(data);
-    });
+    })
+    .catch(e => alert(`post error: ${e}`));
 };
 
 Customer.prototype.deleteData = function(id) {

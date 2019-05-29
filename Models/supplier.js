@@ -27,7 +27,7 @@ Supplier.prototype.postData = function(data) {
     method: "POST",
     mode: "cors",
     headers: {
-      "Application": "application/json",
+      "Accept": "application/json",
       "Content-Type": "application/json"
     },
     body: JSON.stringify(data)
@@ -41,9 +41,14 @@ Supplier.prototype.postData = function(data) {
 Supplier.prototype.updateData = function(data, id) {
   fetch("http://delta.apexcode.ro/api/suppliers/" + id, {
     method: "PUT",
+    mode: "cors",
+    headers: {
+      "Accept": "application/json",
+      "Content-Type": "application/json"
+    },
     body: JSON.stringify(data)
   })
-    .then(resp => resp.json())
+    // .then(resp => resp.json())
     .then(jsonResp => console.log(jsonResp));
 };
 
