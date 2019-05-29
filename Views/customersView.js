@@ -21,9 +21,11 @@ function addOnPostEventListner(customer) {
   });
 }
 function gatherPostInputData() {
+  let customerId = document.getElementById("id-customers").value
   let customerName = document.getElementById("name-customers").value;
   let customerCUI = document.getElementById("CUI-customers").value;
   return {
+    id: customerId,
     Name: customerName,
     CUI: customerCUI
   };

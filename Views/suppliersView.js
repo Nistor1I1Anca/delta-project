@@ -25,9 +25,11 @@ function addOnPostEventListner(supplier) {
   });
 }
 function gatherPostInputData() {
+  let id = document.getElementById("id-suppliers").value;
   let name = document.getElementById("name-suppliers").value;
   let CUI = document.getElementById("CUI-suppliers").value;
   return {
+    id: id,
     Name: name,
     CUI: CUI
   };
