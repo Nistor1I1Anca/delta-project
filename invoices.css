@@ -1,24 +1,28 @@
-a.btn:hover {
-    -webkit-transform: scale(1.1);
-    -moz-transform: scale(1.1);
-    -o-transform: scale(1.1);
-}
-
-a.btn {
-    -webkit-transform: scale(0.8);
-    -moz-transform: scale(0.8);
-    -o-transform: scale(0.8);
-    -webkit-transition-duration: 0.5s;
-    -moz-transition-duration: 0.5s;
-    -o-transition-duration: 0.5s;
-    margin-left: 25px;
+.btn {
     position: relative;
-    top:25px;
-}
+    top:15px;
+    left:45px;
+    margin-left: 20px;
+    font-size: 20px;
+    color: rgb(206, 86, 86);
+    background-color: #dfe24800;
+    border-color: #060a4d;
+  }
+  .btn:focus,
+  .btn.focus {
+    color: rgba(19, 1, 1, 0.74);
+    background-color: rgb(150, 150, 150);
+    border-color: #15ccc3;
+  }
+  .btn:hover {
+    color:black;
+    background-color: #286090;
+    border-color: #204d74;
+  }
 
-#table {
-    margin-left: 15px;
-    position: relative;
-    top:50px;
-}
-
+  #table {
+      position: relative;
+      top:30px
+  }
+  
+  
