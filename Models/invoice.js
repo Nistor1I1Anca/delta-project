@@ -37,7 +37,7 @@ Invoice.prototype.fetchData = function(id) {
 Invoice.prototype.postData = function(data) {
   fetch("http://delta.apexcode.ro/api/products", {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: { "Content-Type": "application/json", Accept: "application/json" },
     body: JSON.stringify(data)
   })
     .then(resp => resp.json())
@@ -49,10 +49,12 @@ Invoice.prototype.postData = function(data) {
 Invoice.prototype.updateData = function(data) {
   fetch("http://delta.apexcode.ro/api/products/" + id, {
     method: "PUT",
+    headers: { "Content-Type": "application/json", Accept: "application/json" },
     body: JSON.stringify(data)
   })
-    .then(resp => resp.json())
-    .then(jsonResp => console.log(jsonResp));
+    // .then(resp => resp.json())
+    .then(jsonResp => console.log(jsonResp))
+    .catch(e => alert(`post error: ${e}`));
 };
 
 // to be linked to invoicesView

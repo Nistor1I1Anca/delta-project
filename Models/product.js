@@ -25,7 +25,7 @@ Product.prototype.fetchData = function(id) {
 Product.prototype.postData = function(data) {
   fetch("http://delta.apexcode.ro/api/products", {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: { "Content-Type": "application/json", Accept: "application/json" },
     body: JSON.stringify(data)
   })
     .then(resp => resp.json())
@@ -37,10 +37,12 @@ Product.prototype.postData = function(data) {
 Product.prototype.updateData = function(data) {
   fetch("http://delta.apexcode.ro/api/products/" + id, {
     method: "PUT",
+    headers: { "Content-Type": "application/json", Accept: "application/json" },
     body: JSON.stringify(data)
   })
     .then(resp => resp.json())
-    .then(jsonResp => console.log(jsonResp));
+    .then(jsonResp => console.log(jsonResp))
+    .catch(e => alert(`post error: ${e}`));
 };
 
 // to be linked to productsView
