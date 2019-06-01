@@ -1,0 +1,18 @@
+.title{
+    text-align: center;
+}
+#title{
+    margin-bottom: 20px;
+}
+#first-row{
+    margin-bottom: 10px;
+}
+#customer, #last-child, .just-text-1{
+    margin-left: 80px;
+}
+#date{
+    margin-top: -10px;
+}
+.table{
+    margin-top: 20px;
+}
