@@ -1,47 +1,68 @@
-window.onload = function(){
-    var invoice = new Invoice();
-    //will be replace
-    var id = 5;
-
-    invoice.fetchData(id)
-    .then(function(){
-        var html = `<tr><th scope="row">1</th>`;
-        html += `<td></td>`;
-        html += `</tr`;
-        var html = `<p>${post.id}</p>`;
-        html +=  `<p>${post.title}</p>`;
-        html +=  `<p>${post.body}</p>`;
-        html +=  `<p>${post.userId}</p>`;
-
-        $("#container").append(html);
-        var comments = new Comments();
-        comments.fetchData(id)
-        .then(function(){
-            var html = `<p>${comments.items[0].id}</p>`;
-            html +=  `<p>${comments.items[0].name}</p>`;
-            html +=  `<p>${comments.items[0].email}</p>`;
-            html +=  `<p>${comments.items[0].body}</p>`;
-            html +=  `<p>${comments.items[0].postId}</p>`;
-
-            $("#container").append(html);
-        })
-        .catch(function(e){
-            alert('fetch error' + e.status);
-        });
-    })
-    .catch(function(e){
-        alert('fetch error' + e.status);
-    });
+window.onload = function () {
+    getInvoiceData();
+    getAllSuppliersNames();
+    getAllCustomersNames();
 }
 
-/**
-* It retrieves a query (URL) parameter value
-* 
-* It expects you to send the parameter key(before '=')
-* **/
-function getUrlParameter(name) {
-    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
-    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
-    var results = regex.exec(location.search);
-    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
-    };
+async function getInvoiceData() {
+    let invoice = new Invoice();
+    await invoice.fetchData(5);
+    document.getElementById("series").value = invoice.Series;
+    document.getElementById("number").value = invoice.Number;
+
+    //date processing
+    var d = new Date(invoice.Date);
+    var dateOnly = (d.getMonth() + 1) + '/' + d.getDate() + '/' + d.getFullYear()
+    document.getElementById("date").value = dateOnly;
+}
+
+async function getAllSuppliersNames() {
+    let suppliers = new Suppliers();
+    await suppliers.fetchData();
+    var html = ``;
+    for (let i = 0; i < suppliers.items.length; i++) {
+        html += `<li><a href="#" id="${suppliers.items[i].Id}">${suppliers.items[i].Name}</a><li>`;
+    }
+    $("#supplier-dropdown").append(html);
+}
+
+async function getSupplierCUIAfterId(id){
+    let supplier = new Supplier();
+    await supplier.fetchData(id);
+    $('.cui-supplier').text("CUI: "+ supplier.CUI);
+}
+
+async function getCustomerCUIAfterId(id){
+    let customer = new Customer();
+    await customer.fetchData(id);
+    $('.cui-customer').text("CUI: "+ customer.CUI);
+}
+
+$(document).on('click', '#supplier-dropdown li a', function() {
+    // var selectedSupplier = $(this).text();
+    var selectedSupplierId = $(this).attr("id");
+    $('#supplier').text($(this).text());
+    var html = `<span class="caret" id = "arrow"></span>`;
+    $('#supplier').append(html);
+    getSupplierCUIAfterId(selectedSupplierId);
+}); 
+
+$(document).on('click', '#customer-dropdown li a', function() {
+    // var selectedCustomer = $(this).text();
+    var selectedCustomerId = $(this).attr("id");
+    console.log("selectedCustomerId", selectedCustomerId);
+    $('#customer-button').text($(this).text());
+    var html = `<span class="caret" id = "arrow"></span>`;
+    $('#customer-button').append(html);
+    getCustomerCUIAfterId(selectedCustomerId);
+}); 
+
+async function getAllCustomersNames() {
+    let customers = new Customers();
+    await customers.fetchData();
+    var html = ``;
+    for (let i = 0; i < customers.items.length; i++) {
+        html += `<li><a href="#" id="${customers.items[i].Id}">${customers.items[i].Name}</a><li>`;
+    }
+    $("#customer-dropdown").append(html);
+}

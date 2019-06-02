@@ -4,10 +4,10 @@ function Supplier() {
   this.CUI = null;
 }
 
-Supplier.prototype.fetchData = function(id) {
+Supplier.prototype.fetchData = async function(id) {
   //daca nu salvam this curent, inauntru cand suprascriu id-ul, o sa am alt current context: this
   let supplierThis = this;
-  fetch("http://delta.apexcode.ro/api/suppliers/" + id, {
+  await fetch("http://delta.apexcode.ro/api/suppliers/" + id, {
     method: "GET"
   })
     .then(resp => resp.json())
