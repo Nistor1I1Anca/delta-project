@@ -1,4 +1,5 @@
 window.onload = function() {
+  setWelcome();
   getData();
 
   let customer = new Customer();
@@ -19,16 +20,6 @@ function addOnPostEventListner(customer) {
     let data = gatherPostInputData();
     customer.postData(data);
   });
-}
-function gatherPostInputData() {
-  let customerId = document.getElementById("id-customers").value
-  let customerName = document.getElementById("name-customers").value;
-  let customerCUI = document.getElementById("CUI-customers").value;
-  return {
-    id: customerId,
-    Name: customerName,
-    CUI: customerCUI
-  };
 }
 
 function addOnUpdateEventListner(customer) {
@@ -51,4 +42,15 @@ function addOnDeleteEventListner(customer) {
 
 function gatherDeleteInputdata() {
   return document.getElementById("id-customers").value;
+}
+
+function gatherPostInputData() {
+  let customerId = document.getElementById("post-customers-id").value;
+  let customerName = document.getElementById("post-customers-name").value;
+  let customerCUI = document.getElementById("post-customers-cui").value;
+  return {
+    id: customerId,
+    Name: customerName,
+    CUI: customerCUI
+  };
 }

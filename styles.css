@@ -1,0 +1,18 @@
+.title{
+    text-align: center;
+}
+#title{
+    margin-bottom: 20px;
+}
+#first-row, #second-row, #third-row{
+    margin-bottom: 10px;
+}
+#customer, #customer-button, .cui-customer{
+    margin-left: 80px;
+}
+.table{
+    margin-top: 20px;
+}
+#arrow{
+    margin-left: 2px;
+}
