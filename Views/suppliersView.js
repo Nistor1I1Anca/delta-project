@@ -3,7 +3,7 @@ window.onload = function () {
 
   let supplier = new Supplier();
   addOnPostEventListner(supplier); //post
-  addOnDeleteEventListner(supplier); //delete
+  // addOnDeleteEventListner(supplier); //delete
   addOnUpdateEventListner(supplier); //put
   getAllSuppliersNames();
 
