@@ -22,7 +22,6 @@ Invoices.prototype.fetchData = async function(){
             invoiceModel.Date = invoice.Date;
             invoiceModel.SupplierId = invoice.SupplierId;
             invoiceModel.CustomerId = invoice.CustomerId;
-            invoiceModel.InvoiceItems = invoice.InvoiceItems;
 
             invoicesThis.items.push(invoiceModel);
         }

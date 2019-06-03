@@ -2,6 +2,7 @@ window.onload = function () {
     getInvoiceData();
     getAllSuppliersNames();
     getAllCustomersNames();
+    getAllInvoiceItems();
 }
 
 async function getInvoiceData() {
@@ -26,36 +27,33 @@ async function getAllSuppliersNames() {
     $("#supplier-dropdown").append(html);
 }
 
-async function getSupplierCUIAfterId(id){
+async function getSupplierCUIAfterId(id) {
     let supplier = new Supplier();
     await supplier.fetchData(id);
-    $('.cui-supplier').text("CUI: "+ supplier.CUI);
+    $('.cui-supplier').text("CUI: " + supplier.CUI);
 }
 
-async function getCustomerCUIAfterId(id){
+async function getCustomerCUIAfterId(id) {
     let customer = new Customer();
     await customer.fetchData(id);
-    $('.cui-customer').text("CUI: "+ customer.CUI);
+    $('.cui-customer').text("CUI: " + customer.CUI);
 }
 
-$(document).on('click', '#supplier-dropdown li a', function() {
-    // var selectedSupplier = $(this).text();
+$(document).on('click', '#supplier-dropdown li a', function () {
     var selectedSupplierId = $(this).attr("id");
     $('#supplier').text($(this).text());
     var html = `<span class="caret" id = "arrow"></span>`;
     $('#supplier').append(html);
     getSupplierCUIAfterId(selectedSupplierId);
-}); 
+});
 
-$(document).on('click', '#customer-dropdown li a', function() {
-    // var selectedCustomer = $(this).text();
+$(document).on('click', '#customer-dropdown li a', function () {
     var selectedCustomerId = $(this).attr("id");
-    console.log("selectedCustomerId", selectedCustomerId);
     $('#customer-button').text($(this).text());
     var html = `<span class="caret" id = "arrow"></span>`;
     $('#customer-button').append(html);
     getCustomerCUIAfterId(selectedCustomerId);
-}); 
+});
 
 async function getAllCustomersNames() {
     let customers = new Customers();
@@ -65,4 +63,24 @@ async function getAllCustomersNames() {
         html += `<li><a href="#" id="${customers.items[i].Id}">${customers.items[i].Name}</a><li>`;
     }
     $("#customer-dropdown").append(html);
+}
+
+
+async function getAllInvoiceItems() {
+    let invoiceItems = new InvoiceItems();
+
+    //replace invoiceId = 5 with an id generated dinamically
+    await invoiceItems.fetchData(5);
+    var html = ``;
+    for (let i = 0; i < invoiceItems.items.length; i++) {
+        html += `<tr id="${invoiceItems.items[i].Id}"></tr>`;
+        html += `<th scope="row">1</th>`;
+        html += `<td>${invoiceItems.items[i].Product.Name}</td>`;
+        html += `<td>${invoiceItems.items[i].Quantity}</td>`;
+        html += `<td>${invoiceItems.items[i].Price}</td>`;
+        var value = invoiceItems.items[i].Quantity * invoiceItems.items[i].Price;
+        html += `<td>${value}</td>`;
+        html += `<td>${invoiceItems.items[i].VAT}</td>`;
+    }
+    $("#items-table").append(html);
 }
