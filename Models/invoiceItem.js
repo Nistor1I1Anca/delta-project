@@ -28,11 +28,30 @@ InvoiceItem.prototype.fetchData = async function(invoiceItemId) {
     });
 };
 
-InvoiceItem.prototype.postdata = function(invoiceItemId) {
-  fetch("http://delta.apexcode.ro/api/InvoiceItems/" + invoiceItemId, {
+InvoiceItem.prototype.postdata = async function(invoiceItemId) {
+  await fetch("http://delta.apexcode.ro/api/InvoiceItems/" + invoiceItemId, {
     method: "PUT",
     body: JSON.stringify(this),
     headers: { "Content-Type": "application/json", Accept: "application/json" }
+      .then(function (resp) {
+        return resp.json();
+      })
+      .then(function (invoiceItem) {
+        invoiceItemThis.Id = invoiceItem.Id;
+        invoiceItemThis.ProductId = invoiceItem.ProductId;
+        invoiceItemThis.Quantity = invoiceItem.Quantity;
+        invoiceItemThis.Price = invoiceItem.Price;
+        invoiceItemThis.VAT = invoiceItem.VAT;
+        invoiceItemThis.InvoiceId = invoiceItem.InvoiceId;
+        invoiceItemThis.Product = invoiceItem.Product;
+      })
+  })
+};
+
+  // to be linked to invoicesView
+InvoiceItem.prototype.deleteData = async function (id) {
+  await fetch("http://delta.apexcode.ro/api/InvoiceItems/" + id, {
+    method: "DELETE"
   })
     .then(resp => resp.json())
     .then(jsonResp => console.log(jsonResp))

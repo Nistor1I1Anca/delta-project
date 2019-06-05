@@ -71,10 +71,12 @@ async function getAllInvoiceItems() {
     let invoiceItemBaseUrl = "http://127.0.0.1:5500/invoice-item.html/";
     //replace invoiceId = 5 with an id generated dinamically
     await invoiceItems.fetchData(5);
+    // console.log(invoiceItems);
     var html = ``;
     for (let i = 0; i < invoiceItems.items.length; i++) {
-        html += `<tr id="${invoiceItems.items[i].Id}"></tr>`;
+        html += `<tr id="${invoiceItems.items[i].Id}" class="invoice-items"></tr>`;
         // html += `<th scope="row">1</th>`;
+        html += `<td >${invoiceItems.items[i].Id}</td>`;
         html += `<td >${invoiceItems.items[i].Product.Name}</td>`;
         html += `<td >${invoiceItems.items[i].Quantity}</td>`;
         html += `<td >${invoiceItems.items[i].Price}</td>`;
@@ -82,7 +84,21 @@ async function getAllInvoiceItems() {
         html += `<td>${value}</td>`;
         html += `<td>${invoiceItems.items[i].VAT}</td>`;
         html += `<td><a href ="${invoiceItemBaseUrl}${invoiceItems.items[i].Id}" type="button" id="edit-column" class="btn btn-info btn-sm">Edit</a>`;
-        html += `<a type="button" id="delete-column" class="btn btn-info btn-sm">Delete</a></td>`;
+        html += `<a type="button" id="${invoiceItems.items[i].Id}" class="btn btn-info btn-sm delete">Delete</a></td>`;
     }
     $("#items-table").append(html);
 }
+
+$(document).on('click', '#items-table .delete', function () {
+    var selectedSupplierId = $(this).attr("id");
+    console.log(selectedSupplierId);
+    let invoiceItem = new InvoiceItem();
+    invoiceItem.deleteData(selectedSupplierId);
+    // $('#products-table').reload();
+    // $('#products-table').DataTable().ajax.reload();
+    $( "#products-table" ).load( "invoice.html #products-table" );
+    getAllInvoiceItems();
+    // $( "#products-table" ).load("#products-table");
+    // location.reload();
+    // $('#products-table').data.reload()
+});
