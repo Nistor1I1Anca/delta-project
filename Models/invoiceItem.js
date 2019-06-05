@@ -27,3 +27,13 @@ function InvoiceItem() {
         invoiceItemThis.Product = invoiceItem.Product;
       })
   };
+
+  // to be linked to invoicesView
+InvoiceItem.prototype.deleteData = async function (id) {
+  await fetch("http://delta.apexcode.ro/api/InvoiceItems/" + id, {
+    method: "DELETE"
+  })
+    .then(resp => resp.json())
+    .then(jsonResp => console.log(jsonResp))
+    .catch(e => alert(`post error: ${e}`));
+};
