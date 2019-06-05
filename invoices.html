@@ -17,54 +17,27 @@
 
 <body>
 
-    <div class="container">
-        <div class="row">
+    <div id="wrapper">
+        <table cellspacing=10 cellpadding=20 id="data_table" border=2>
+            <tr>
+                <th>No.crt</th>
+                <th>Series</th>
+                <th>Number</th>
+                <th>Date</th>
+            </tr>
 
-            <p><a href="" class="btn btn-md btn-hover btn-default">Add</a></p>
-            <p><a href="#" class="btn btn-md btn-hover btn-default">Edit</a></p>
-            <p><a href="#" class="btn btn-md btn-hover btn-default">Delete</a></p>
-
-            
-        </div>
+        </table>
     </div>
-
-    <table class="table-hover table table-bordered " id="table">
-        <thead class="thead-dark" id="table">
-            <tr>
-                <th scope="col">No.crt</th>
-                <th scope="col">Series</th>
-                <th scope="col">Number</th>
-                <th scope="col">Date</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td></td>
-                <td>AAAA</td>
-                <td>22323</td>
-                <td>06/06/2019</td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>AB56</td>
-                <td>423</td>
-                <td>05/02/2019</td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>DS56</td>
-                <td>5633</td>
-                <td>04/01/2019</td>
-            </tr>
-        </tbody>
-    </table>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
-    <script src="main.js"></script>
+    <script src="/Models/invoices.js"></script>
+    <script src="/Views/invoicesView.js"></script>
+    <script src="/Models/invoice.js"></script>
+
 
 </body>
 
