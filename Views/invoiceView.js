@@ -24,34 +24,35 @@ async function getAllSuppliersNames() {
     for (let i = 0; i < suppliers.items.length; i++) {
         html += `<li><a href="#" id="${suppliers.items[i].Id}">${suppliers.items[i].Name}</a><li>`;
     }
-    $("#supplier-dropdown").append(html);
+    document.getElementById("supplier-dropdown").innerHTML = html;
 }
 
 async function getSupplierCUIAfterId(id) {
     let supplier = new Supplier();
     await supplier.fetchData(id);
-    $('.cui-supplier').text("CUI: " + supplier.CUI);
+    document.getElementById("cui-supplier").innerHTML = "CUI: " + supplier.CUI;
+    // $('.cui-supplier').text("CUI: " + supplier.CUI);
 }
 
 async function getCustomerCUIAfterId(id) {
     let customer = new Customer();
     await customer.fetchData(id);
-    $('.cui-customer').text("CUI: " + customer.CUI);
+    document.getElementById("cui-customer").innerHTML = "CUI: " + customer.CUI;
 }
 
 $(document).on('click', '#supplier-dropdown li a', function () {
     var selectedSupplierId = $(this).attr("id");
-    $('#supplier').text($(this).text());
+    document.getElementById('supplier').innerHTML = $(this).text();
     var html = `<span class="caret" id = "arrow"></span>`;
-    $('#supplier').append(html);
+    document.getElementById('supplier').innerHTML += html;
     getSupplierCUIAfterId(selectedSupplierId);
 });
 
 $(document).on('click', '#customer-dropdown li a', function () {
     var selectedCustomerId = $(this).attr("id");
-    $('#customer-button').text($(this).text());
+    document.getElementById('customer-button').innerHTML = $(this).text();
     var html = `<span class="caret" id = "arrow"></span>`;
-    $('#customer-button').append(html);
+    document.getElementById('customer-button').innerHTML += html;
     getCustomerCUIAfterId(selectedCustomerId);
 });
 
@@ -62,20 +63,17 @@ async function getAllCustomersNames() {
     for (let i = 0; i < customers.items.length; i++) {
         html += `<li><a href="#" id="${customers.items[i].Id}">${customers.items[i].Name}</a><li>`;
     }
-    $("#customer-dropdown").append(html);
+    document.getElementById('customer-dropdown').innerHTML += html;
 }
-
 
 async function getAllInvoiceItems() {
     let invoiceItems = new InvoiceItems();
     let invoiceItemBaseUrl = "http://127.0.0.1:5500/invoice-item.html/";
     //replace invoiceId = 5 with an id generated dinamically
     await invoiceItems.fetchData(5);
-    // console.log(invoiceItems);
     var html = ``;
     for (let i = 0; i < invoiceItems.items.length; i++) {
         html += `<tr id="${invoiceItems.items[i].Id}" class="invoice-items"></tr>`;
-        // html += `<th scope="row">1</th>`;
         html += `<td >${invoiceItems.items[i].Id}</td>`;
         html += `<td >${invoiceItems.items[i].Product.Name}</td>`;
         html += `<td >${invoiceItems.items[i].Quantity}</td>`;
@@ -86,7 +84,7 @@ async function getAllInvoiceItems() {
         html += `<td><a href ="${invoiceItemBaseUrl}${invoiceItems.items[i].Id}" type="button" id="edit-column" class="btn btn-info btn-sm">Edit</a>`;
         html += `<a type="button" id="${invoiceItems.items[i].Id}" class="btn btn-info btn-sm delete">Delete</a></td>`;
     }
-    $("#items-table").append(html);
+    document.getElementById('items-table').innerHTML += html;
 }
 
 $(document).on('click', '#items-table .delete', function () {
@@ -94,11 +92,5 @@ $(document).on('click', '#items-table .delete', function () {
     console.log(selectedSupplierId);
     let invoiceItem = new InvoiceItem();
     invoiceItem.deleteData(selectedSupplierId);
-    // $('#products-table').reload();
-    // $('#products-table').DataTable().ajax.reload();
-    $( "#products-table" ).load( "invoice.html #products-table" );
-    getAllInvoiceItems();
-    // $( "#products-table" ).load("#products-table");
-    // location.reload();
-    // $('#products-table').data.reload()
+    $(this).parent().parent().remove();
 });
