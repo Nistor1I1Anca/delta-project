@@ -13,7 +13,7 @@ function Invoice() {
 Invoice.prototype.fetchData = async function(id) {
   //daca nu salvam this curent, inauntru cand suprascriu id-ul, o sa am alt current context: this
   let invoiceThis = this;
-  await fetch("http://delta.apexcode.ro/api/invoices/5", {
+  await fetch("http://delta.apexcode.ro/api/invoices/"+ id, {
     method: "GET"
   })
     .then(function (resp) {
@@ -26,7 +26,7 @@ Invoice.prototype.fetchData = async function(id) {
       invoiceThis.Number = invoice.Number;
       invoiceThis.Series = invoice.Series;
       invoiceThis.SupplierId = invoice.SupplierId;
-    })
+    });
 };
 
 // to be linked to invoicesView

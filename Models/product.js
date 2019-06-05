@@ -4,10 +4,10 @@ function Product() {
   this.ProductType = "";
 }
 
-Product.prototype.fetchData = function(id) {
+Product.prototype.fetchData = async function(id) {
   //daca nu salvam this curent, inauntru cand suprascriu id-ul, o sa am alt current context: this
   let productThis = this;
-  fetch("http://delta.apexcode.ro/api/products/" + id, {
+  await fetch("http://delta.apexcode.ro/api/products/" + id, {
     method: "GET"
   })
     .then(resp => resp.json())
