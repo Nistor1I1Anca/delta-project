@@ -23,7 +23,7 @@ Supplier.prototype.fetchData = async function(id) {
 
 // to be linked to suppliersView
 Supplier.prototype.postData = function(data) {
-  console.log("intra");
+  console.log("intra", data);
   fetch("http://delta.apexcode.ro/api/suppliers", {
     method: "POST",
     mode: "cors",
@@ -53,7 +53,6 @@ Supplier.prototype.updateData = function(data, id) {
     },
     body: JSON.stringify(data)
   })
-    // .then(resp => resp.json())
     .then(jsonResp => console.log(jsonResp));
 };
 
