@@ -5,18 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <script src="Views/invoiceView.js"></script>
-    <script src="Models/invoice.js"></script>
-    <script src="Models/suppliers.js"></script>
-    <script src="Models/supplier.js"></script>
-    <script src="Models/customers.js"></script>
-    <script src="Models/customer.js"></script>
-    <script src="Models/invoiceItem.js"></script>
-    <script src="Models/invoiceItems.js"></script>
-    <script src="Models/product.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 </head>
 
 <body>
@@ -74,7 +62,7 @@
                             <button class="btn dropdown-toggle" id="customer-button" type="button"
                                 data-toggle="dropdown">Samsung
                                 <span class="caret"></span></button>
-                            <ul class="dropdown-menu"  id="customer-dropdown">
+                            <ul class="dropdown-menu" id="customer-dropdown">
                             </ul>
                         </div>
                     </div>
@@ -90,7 +78,7 @@
                             <label for="data" id="data">Date:</label>
                         </div>
                         <div class="col-xs-9">
-                            <input type="text" class="form-control" name="data" id="date"/>
+                            <input type="text" class="form-control" name="data" id="date" />
                         </div>
                     </div>
                     <div class="col-sm-4">
@@ -98,33 +86,41 @@
                     </div>
                 </div>
             </div>
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">Product</th>
-                        <th scope="col">Quantity</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Value</th>
-                        <th scope="col">VAT</th>
-                    </tr>
-                </thead>
-                <tbody id = "items-table">
-                    <!-- <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>vad</td>
-                        <td>bla</td>
-                    </tr> -->
-                </tbody>
-            </table>
+            <div class="col-lg-12" id="products-table">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">No</th>
+                            <th scope="col">Product</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Value</th>
+                            <th scope="col">VAT</th>
+                            <th scope="col">Edit/Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody id="items-table">
+                    </tbody>
+                </table>
+            </div>
             <div class="col-xs-2" id="save">
                 <button type="button" class="btn btn-sm">Save</button>
             </div>
         </div>
     </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="Views/invoiceView.js"></script>
+    <script src="Models/invoice.js"></script>
+    <script src="Models/suppliers.js"></script>
+    <script src="Models/supplier.js"></script>
+    <script src="Models/customers.js"></script>
+    <script src="Models/customer.js"></script>
+    <script src="Models/invoiceItem.js"></script>
+    <script src="Models/invoiceItems.js"></script>
+    <script src="Models/product.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 </body>
 
 </html>
