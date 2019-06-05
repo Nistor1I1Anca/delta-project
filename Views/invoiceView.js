@@ -68,22 +68,21 @@ async function getAllCustomersNames() {
 
 async function getAllInvoiceItems() {
     let invoiceItems = new InvoiceItems();
-
+    let invoiceItemBaseUrl = "http://127.0.0.1:5500/invoice-item.html/";
     //replace invoiceId = 5 with an id generated dinamically
     await invoiceItems.fetchData(5);
     var html = ``;
     for (let i = 0; i < invoiceItems.items.length; i++) {
         html += `<tr id="${invoiceItems.items[i].Id}"></tr>`;
-        html += `<th scope="row">1</th>`;
-        html += `<td>${invoiceItems.items[i].Product.Name}</td>`;
-        html += `<td>${invoiceItems.items[i].Quantity}</td>`;
-        html += `<td>${invoiceItems.items[i].Price}</td>`;
+        // html += `<th scope="row">1</th>`;
+        html += `<td >${invoiceItems.items[i].Product.Name}</td>`;
+        html += `<td >${invoiceItems.items[i].Quantity}</td>`;
+        html += `<td >${invoiceItems.items[i].Price}</td>`;
         var value = invoiceItems.items[i].Quantity * invoiceItems.items[i].Price;
         html += `<td>${value}</td>`;
         html += `<td>${invoiceItems.items[i].VAT}</td>`;
-        html += `<td><button type="button" id="edit-column" class="btn btn-sm">Edit</button>`;
-        html += `<button type="button" id="delete-column" class="btn btn-sm">Delete</button></td>`;
-
+        html += `<td><a href ="${invoiceItemBaseUrl}${invoiceItems.items[i].Id}" type="button" id="edit-column" class="btn btn-info btn-sm">Edit</a>`;
+        html += `<a type="button" id="delete-column" class="btn btn-info btn-sm">Delete</a></td>`;
     }
     $("#items-table").append(html);
 }
