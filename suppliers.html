@@ -6,15 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>Suppliers</title>
-
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="mycss.css" type="text/css">
   <!-- <script src='main.js'></script> -->
 
 </head>
 
 <body>
   <div class="container">
-    <div class="row">
+    <div class="row-1">
       <h1>Suppliers</h1>
     </div>
     <div class="row">
@@ -22,7 +23,7 @@
         <div class="input-group-prepend">
           <span class="input-group-text">Id</span>
         </div>
-        <input type="text" id="id-suppliers" class="col-md-6 col-sm-12" />
+        <input type="text" id="id-suppliers" class="col-md-6 col-sm-3" />
       </div>
     </div>
     <div class="row">
@@ -42,7 +43,7 @@
       </div>
     </div>
     <div class="row">
-      <button type="button" id="suppliers-post" class="btn btn-secondary mr-3">
+      <button type="button" id="suppliers-post" class="btn btn-success mr-3">
         Post
       </button>
       <!-- <button type="button" id="suppliers-update" class="btn btn-secondary ml-3 mr-3">
@@ -54,9 +55,10 @@
     </div>
   </div>
   <br>
+  <div class="layout-1">
   <div class="container list">
     <div class="row">
-      <h1>Suppliers List</h1>
+      <h1 id="ei">Suppliers list</h1>
     </div>
 
     <div class="row">
@@ -69,6 +71,7 @@
           <li class="list-group-item">Supplier4</li>
           <li class="list-group-item">Supplier5</li> -->
           </div>
+        
       </div>
       <div class="col-sm-6">
         <div class="input-group">
@@ -92,11 +95,12 @@
             <input type="text" id="supplier-id" class="form-control" aria-label="Input group example">
           </div>
         <br>
-        <button type="button" id="suppliers-update" class="btn btn-secondary">Update</button>
-        <button type="button" id="suppliers-delete" class="btn btn-secondary">Delete</button>
+        <button type="button" id="suppliers-update" class="btn btn-success">Update</button>
+        <button type="button" id="suppliers-delete" class="btn btn-danger">Delete</button>
       </div>
     </div>
   </div>
+</div>
 
   <script src=".\Views\suppliersView.js"></script>
   <script src=".\Models\supplier.js"></script>
@@ -106,4 +110,4 @@
 
 </body>
 
-</html>
+</html> 
