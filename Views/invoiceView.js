@@ -81,6 +81,9 @@ async function getAllInvoiceItems() {
         var value = invoiceItems.items[i].Quantity * invoiceItems.items[i].Price;
         html += `<td>${value}</td>`;
         html += `<td>${invoiceItems.items[i].VAT}</td>`;
+        html += `<td><button type="button" id="edit-column" class="btn btn-sm">Edit</button>`;
+        html += `<button type="button" id="delete-column" class="btn btn-sm">Delete</button></td>`;
+
     }
     $("#items-table").append(html);
 }
