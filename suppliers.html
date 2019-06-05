@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>Suppliers</title>
+  <!-- <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>" -->
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
   <!-- <script src='main.js'></script> -->
@@ -15,6 +16,12 @@
 <body>
   <div class="container">
     <div class="row">
+      <div class="alert alert-info d-none" id="bsalert">
+          <a href="#" class="close" id="close" data-dismiss="alert" aria-label="close">&times;</a>
+          <strong>Info!</strong> This alert box could indicate a neutral informative or action
+        </div>
+      </div>
+    <div class="row">
       <h1>Suppliers</h1>
     </div>
     <div class="row">
@@ -22,7 +29,7 @@
         <div class="input-group-prepend">
           <span class="input-group-text">Id</span>
         </div>
-        <input type="text" id="id-suppliers" class="col-md-6 col-sm-12" />
+        <input type="text" id="supplier-id" class="col-md-6 col-sm-12" />
       </div>
     </div>
     <div class="row">
@@ -30,7 +37,7 @@
         <div class="input-group-prepend">
           <span class="input-group-text">Name</span>
         </div>
-        <input type="text" id="name-suppliers" class="col-md-6 col-sm-12" />
+        <input type="text" id="supplier-name" class="col-md-6 col-sm-12" />
       </div>
     </div>
     <div class="row">
@@ -38,7 +45,7 @@
         <div class="input-group-prepend">
           <span class="input-group-text">CUI</span>
         </div>
-        <input type="text" id="CUI-suppliers" class="col-md-6 col-sm-12" />
+        <input type="text" id="supplier-cui" class="col-md-6 col-sm-12" />
       </div>
     </div>
     <div class="row">
@@ -62,13 +69,13 @@
     <div class="row">
       <div class="col-sm-3">
         <div class="list-group" id="supplier-list">
-         <!-- <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button> -->
+          <!-- <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button> -->
           <!-- <li class="list-group-item">Supplier1</li>
           <li class="list-group-item">Supplier2</li>
           <li class="list-group-item">Supplier3</li>
           <li class="list-group-item">Supplier4</li>
           <li class="list-group-item">Supplier5</li> -->
-          </div>
+        </div>
       </div>
       <div class="col-sm-6">
         <div class="input-group">
@@ -86,17 +93,31 @@
         </div>
         <br>
         <div class="input-group">
-            <div class="input-group-prepend">
-              <div class="input-group-text" id="btnGroupAddon">ID</div>
-            </div>
-            <input type="text" id="supplier-id" class="form-control" aria-label="Input group example">
+          <div class="input-group-prepend">
+            <div class="input-group-text" id="btnGroupAddon">ID</div>
           </div>
+          <input type="text" id="supplier-id" class="form-control" aria-label="Input group example">
+        </div>
         <br>
         <button type="button" id="suppliers-update" class="btn btn-secondary">Update</button>
         <button type="button" id="suppliers-delete" class="btn btn-secondary">Delete</button>
       </div>
     </div>
   </div>
+  <!-- <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>Success</strong> You should check in on some of those fields below.
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Fail!</strong> You should check in on some of those fields below.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div> -->
+
+
 
   <script src=".\Views\suppliersView.js"></script>
   <script src=".\Models\supplier.js"></script>

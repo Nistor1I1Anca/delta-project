@@ -3,7 +3,7 @@ window.onload = function () {
 
   let supplier = new Supplier();
   addOnPostEventListner(supplier); //post
-  // addOnDeleteEventListner(supplier); //delete
+  addOnDeleteEventListner(supplier); //delete
   addOnUpdateEventListner(supplier); //put
   getAllSuppliersNames();
 
@@ -31,9 +31,25 @@ async function getData() {
 function addOnPostEventListner(supplier) {
   document.getElementById("suppliers-post").addEventListener("click", () => {
     let data = gatherPostInputData();
+    if(supplier.postData(data)){
+
+    }
     supplier.postData(data);
+    toggleSuccessAlert();
   });
 }
+
+document.getElementById("close").addEventListener("click", () => {
+  var el = document.getElementById('bsalert');
+  el.className = 'd-none';
+
+});
+
+function toggleSuccessAlert(){
+  var el = document.getElementById('bsalert');
+  el.className = 'alert alert-info';
+}
+
 function gatherPostInputData() {
   let id = document.getElementById("supplier-id").value;
   let name = document.getElementById("supplier-name").value;
@@ -54,14 +70,14 @@ function addOnUpdateEventListner(supplier) {
   });
 }
 
-// // event de delete supplier
-// function addOnDeleteEventListner(supplier) {
-//   document.getElementById("suppliers-delete").addEventListener("click", () => {
-//     let data = gatherPostInputdata();
-//     let id = document.getElementById("supplier-id").value;
-//     supplier.deleteData(data, id);
-//   });
-// }
+// event de delete supplier
+function addOnDeleteEventListner(supplier) {
+  document.getElementById("suppliers-delete").addEventListener("click", () => {
+    let data = gatherDeleteInputdata();
+    let id = document.getElementById("supplier-id").value;
+    supplier.deleteData(data, id);
+  });
+}
 
 function gatherDeleteInputdata() {
   return document.getElementById("supplier-id").value;
