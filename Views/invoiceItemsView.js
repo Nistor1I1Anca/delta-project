@@ -1,16 +1,18 @@
 window.onload = function() {
   setWelcome();
-  let invoiceId = getUrlParameter("invoiceId");
+
+  let invoiceId = 5;  //de sters dupa ce avem un InvoiceId in URL 
+
+  // de decomentat - >>>>  let invoiceId = getUrlParameter("invoiceId");
+  
   document.getElementById("id-invoice").innerHTML = invoiceId;
 
   populateCustomerAndSupplier();
   populateSelect(invoiceId);
 
   addOnSelectChangeEventListner();
-  addOnSaveClickEventLisnter();
+  addOnSaveClickEventLisnter(invoiceId);
 };
-
-
 
 async function populateCustomerAndSupplier(invoiceId) {
   let invoice = new Invoice();
@@ -28,7 +30,7 @@ async function populateCustomerAndSupplier(invoiceId) {
 async function populateSelect(invoiceId) {
   let product = new Product();
 
-  await fetch("http://delta.apexcode.ro/api/Invoices/" + 5 + "/items", {
+  await fetch("http://delta.apexcode.ro/api/Invoices/" + invoiceId + "/items", {
     method: "GET"
   })
     .then(function(resp) {
@@ -49,29 +51,49 @@ async function populateSelect(invoiceId) {
   // select.value
 }
 
-function addOnSelectChangeEventListner() {
-  document.getElementById("select").addEventListener("change", () => {
+function addOnSelectChangeEventListner(currentProduct) {
+  document.getElementById("select").addEventListener("change", async () => {
     let currentProduct = document.getElementById("select").value;
 
-    fetch(
-      "http://delta.apexcode.ro/api/Invoices/" + 5 + "/items/" + currentProduct,
-      {
-        method: "GET"
-      }
-    )
-      .then(function(resp) {
-        return resp.json();
-      })
-      .then(function(invoiceItems) {
-        document.getElementById("id-quantity").placeholder =
-          invoiceItems.Quantity;
-        document.getElementById("id-price").placeholder = invoiceItems.Quantity;
-      });
+    let invoiceItem = new InvoiceItem();
+    await invoiceItem.fetchData(currentProduct);
+
+    document.getElementById("id-quantity").placeholder = invoiceItem.Quantity;
+    document.getElementById("id-quantity").value = invoiceItem.Quantity;
+
+    document.getElementById("id-price").placeholder = invoiceItem.Quantity;
+    document.getElementById("id-price").value = invoiceItem.Quantity;
   });
 }
 
-function addOnSaveClickEventLisnter(){
-  
+function addOnSaveClickEventLisnter(invoiceId) {
+  document.getElementById("submit-button").addEventListener("click", () => {
+    let quantity = document.getElementById("id-quantity").value;
+    let price = document.getElementById("id-price").value;
+    let currentProduct = document.getElementById("select").value;
+
+    data = {
+      InvoiceId: invoiceId,
+      Id: currentProduct,
+      Quantity: quantity,
+      Price: price,
+      InvoiceId: 5,
+      ProductId: 40,
+      VAT: 5
+    };
+
+    fetch("http://delta.apexcode.ro/api/invoices/" + 5 + "/items/" + 40, {
+      method: "PUT",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      }
+    })
+      .then(resp => resp.json())
+      .then(jsonResp => console.log(jsonResp))
+      .catch(e => alert(`post error: ${e}`));
+  });
 }
 
 function getUrlParameter(name) {
