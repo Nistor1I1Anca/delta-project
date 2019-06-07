@@ -6,11 +6,11 @@ window.onload = function() {
   populateCustomerAndSupplier();
   populateSelect(invoiceId);
 
-  document.getElementById("select").addEventListener("change",()=>{
-    let currentProduct = document.getElementById("select").value    
-    console.log(currentProduct);
-})
+  addOnSelectChangeEventListner();
+  addOnSaveClickEventLisnter();
 };
+
+
 
 async function populateCustomerAndSupplier(invoiceId) {
   let invoice = new Invoice();
@@ -39,15 +39,38 @@ async function populateSelect(invoiceId) {
     })
     .then(async invoiceItems => {
       for (let i = 0; i < invoiceItems.length; i++) {
-        await product.fetchData(invoiceItems[i].ProductId);
+        await product.fetchData(invoiceItems[i].Product.Id);
         document.getElementById("select").innerHTML += `<option value="${
-          invoiceItems.Id
+          invoiceItems[i].Id
         }">${product.Name}</option>`;
       }
     });
 
-
   // select.value
+}
+
+function addOnSelectChangeEventListner() {
+  document.getElementById("select").addEventListener("change", () => {
+    let currentProduct = document.getElementById("select").value;
+
+    fetch(
+      "http://delta.apexcode.ro/api/Invoices/" + 5 + "/items/" + currentProduct,
+      {
+        method: "GET"
+      }
+    )
+      .then(function(resp) {
+        return resp.json();
+      })
+      .then(function(invoiceItems) {
+        document.getElementById("id-quantity").placeholder =
+          invoiceItems.Quantity;
+        document.getElementById("id-price").placeholder = invoiceItems.Quantity;
+      });
+  });
+}
+
+function addOnSaveClickEventLisnter(){
   
 }
 
