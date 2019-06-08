@@ -45,8 +45,12 @@ InvoiceItem.prototype.postdata = async function(invoiceItemId) {
         invoiceItemThis.InvoiceId = invoiceItem.InvoiceId;
         invoiceItemThis.Product = invoiceItem.Product;
       })
+<<<<<<< HEAD
   })
 };
+=======
+  };
+>>>>>>> a3910e9f23fac6eb0830f4c93741de56953eb23e
 
   // to be linked to invoicesView
 InvoiceItem.prototype.deleteData = async function (id) {
