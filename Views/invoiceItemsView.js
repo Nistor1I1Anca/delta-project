@@ -1,7 +1,7 @@
 window.onload = function() {
   setWelcome();
 
-  let invoiceId = 5;  //de sters dupa ce avem un InvoiceId in URL 
+  let invoiceId = 8;  //de sters dupa ce avem un InvoiceId in URL 
 
   // de decomentat - >>>>  let invoiceId = getUrlParameter("invoiceId");
   
@@ -61,8 +61,8 @@ function addOnSelectChangeEventListner(currentProduct) {
     document.getElementById("id-quantity").placeholder = invoiceItem.Quantity;
     document.getElementById("id-quantity").value = invoiceItem.Quantity;
 
-    document.getElementById("id-price").placeholder = invoiceItem.Quantity;
-    document.getElementById("id-price").value = invoiceItem.Quantity;
+    document.getElementById("id-price").placeholder = invoiceItem.Price;
+    document.getElementById("id-price").value = invoiceItem.Price;
   });
 }
 
@@ -71,20 +71,22 @@ function addOnSaveClickEventLisnter(invoiceId) {
     let quantity = document.getElementById("id-quantity").value;
     let price = document.getElementById("id-price").value;
     let currentProduct = document.getElementById("select").value;
+    console.log(currentProduct)
 
     data = {
       InvoiceId: invoiceId,
       Id: currentProduct,
       Quantity: quantity,
       Price: price,
-      InvoiceId: 5,
       ProductId: 40,
-      VAT: 5
+      VAT: 5,
+    
     };
 
-    fetch("http://delta.apexcode.ro/api/invoices/" + 5 + "/items/" + 40, {
+    fetch("http://delta.apexcode.ro/api/invoices/" + invoiceId + "/items/" + currentProduct, {
       method: "PUT",
       body: JSON.stringify(data),
+      mode:"cors",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json"

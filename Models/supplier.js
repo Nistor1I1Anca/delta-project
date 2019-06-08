@@ -28,15 +28,15 @@ Supplier.prototype.postData = function(data) {
     method: "POST",
     mode: "cors",
     headers: {
-      "Accept": "application/json",
+      Accept: "application/json",
       "Content-Type": "application/json"
     },
     body: JSON.stringify(data)
   })
     .then(resp => resp.json())
-    .then(function(jsonResp){
-      console.log(jsonResp)
-      })
+    .then(function(jsonResp) {
+      console.log(jsonResp);
+    })
     .catch(e => alert(`post error: ${e}`));
 };
 
@@ -48,12 +48,13 @@ Supplier.prototype.updateData = function(data, id) {
     method: "PUT",
     mode: "cors",
     headers: {
-      "Accept": "application/json",
+      Accept: "application/json",
       "Content-Type": "application/json"
     },
     body: JSON.stringify(data)
   })
-    .then(jsonResp => console.log(jsonResp));
+    .then(jsonResp => console.log(jsonResp))
+    .catch(e => alert(`post error: ${e}`));
 };
 
 // to be linked to suppliersView

@@ -34,13 +34,15 @@ Product.prototype.postData = function(data) {
 };
 
 // to be linked to productsView
-Product.prototype.updateData = function(data) {
+Product.prototype.updateData = function(data, id) {
   fetch("http://delta.apexcode.ro/api/products/" + id, {
     method: "PUT",
-    headers: { "Content-Type": "application/json", Accept: "application/json" },
+    // mode:"cors",
+    dataType:"json",
+    headers: { "Content-Type": "application/json; charset=utf-8", Accept: "application/json" },
     body: JSON.stringify(data)
   })
-    .then(resp => resp.json())
+    // .then(resp => resp.json())
     .then(jsonResp => console.log(jsonResp))
     .catch(e => alert(`post error: ${e}`));
 };
