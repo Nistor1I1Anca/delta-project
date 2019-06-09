@@ -6,27 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <!-- <link href="header.html" rel="import" /> -->
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="invoices.css" type="text/css">
-
-
-
+    <link rel="stylesheet" href="styles.css" type="text/css">
 </head>
 
 <body>
-
     <div id="wrapper">
-        <table cellspacing=10 cellpadding=20 id="data_table" border=2>
-            <tr>
-                <th>No.crt</th>
-                <th>Series</th>
-                <th>Number</th>
-                <th>Date</th>
-            </tr>
-
-        </table>
+        <div class='col-lg-12'>
+            <div id="top-nav"></div>
+        </div>
+        <div class='col-lg-12'>
+            <div class="row">
+                <table cellspacing=10 cellpadding=20 id="data_table" border=2>
+                    <tr>
+                        <th>No.crt</th>
+                        <th>Series</th>
+                        <th>Number</th>
+                        <th>Date</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class='col-lg-12'>
+            <button type="button" class="btn btn-info" id="add-new-invoice">Add new invoice</button>
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -34,11 +41,20 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="/Models/invoices.js"></script>
     <script src="/Views/invoicesView.js"></script>
     <script src="/Models/invoice.js"></script>
-
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            console.log("ala bala");
+            $('#top-nav').load('/header.html');
+        });
+    </script>
 </body>
 
 </html>
