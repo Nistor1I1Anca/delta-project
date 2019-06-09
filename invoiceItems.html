@@ -1,91 +1,88 @@
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Edit Invoice Items</title>
 
-    <link rel="stylesheet" type="text/css" href="./invoiceItems.css" />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    />
-  </head>
-  <body>
-    <div id="welcome"></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Edit Invoice Items</title>
 
-    <div class="container">
-      <div class="row d-flex justify-content-center">
-        <div
-          class="col-lg-3 col-md-3 col-sm-3 d-flex justify-content-center test m-2"
-        >
-          <p>Invoice ID: <span id="id-invoice">1</span></p>
-        </div>
-        <div
-          class="col-lg-3 col-md-3 col-sm-3 d-flex justify-content-center test m-2"
-        >
-          <p>Customer: <span id="id-customer"> Samsung</span></p>
-        </div>
-        <div
-          class="col-lg-3 col-md-3 col-sm-3 d-flex justify-content-center test m-2"
-        >
-          <p>Supplier: <span id="id-supplier"> Apple</span></p>
+  <link rel="stylesheet" type="text/css" href="./invoiceItems.css" />
+  <link rel="stylesheet" href="styles.css" type="text/css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+</head>
+
+<body>
+  <!-- <div id="welcome"></div> -->
+
+  <!-- <div class="container">
+    <div class="col-lg-12">
+      <div id="top-nav"></div>
+    </div>
+    <div class="row d-flex justify-content-center">
+      <div class="col-lg-3 col-md-3 col-sm-3 d-flex justify-content-center test m-2">
+        <p>Invoice ID: <span id="id-invoice">1</span></p>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-3 d-flex justify-content-center test m-2">
+        <p>Customer: <span id="id-customer"> Samsung</span></p>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-3 d-flex justify-content-center test m-2">
+        <p>Supplier: <span id="id-supplier"> Apple</span></p>
+      </div>
+    </div>
+  </div> -->
+
+  <div class="container">
+    <div class="col-lg-12">
+      <div id="top-nav"></div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-md-3 col-sm-3 col-lg-2">
+        <h3>Product:</h3>
+      </div>
+      <div class="col-md-8 col-sm-8 col-lg-6">
+        <div class="input-group mb-3">
+          <select id="select" class="custom-select" id="inputGroupSelect01">
+            <option selected>Choose...</option>
+          </select>
         </div>
       </div>
     </div>
-
-    <div class="container">
-      <div class="row mt-3">
-        <div class="col-md-3 col-sm-3 col-lg-2">
-          <h3>Product:</h3>
+    <div class="row">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Quantity</span>
         </div>
-        <div class="col-md-8 col-sm-8 col-lg-6">
-          <div class="input-group mb-3">
-            <select id="select" class="custom-select" id="inputGroupSelect01">
-              <option selected>Choose...</option>
-            </select>
-          </div>
-        </div>
+        <input id="id-quantity" type="text" class="form-control" placeholder="Username" aria-label="Username"
+          aria-describedby="basic-addon1" />
       </div>
-      <div class="row">
-        <div class="input-group mb-3">
-          <div class="input-group-prepend">
-            <span class="input-group-text" id="basic-addon1">Quantity</span>
-          </div>
-          <input
-            id="id-quantity"
-            type="text"
-            class="form-control"
-            placeholder="Username"
-            aria-label="Username"
-            aria-describedby="basic-addon1"
-          />
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Price</span>
         </div>
-        <div class="input-group mb-3">
-          <div class="input-group-prepend">
-            <span class="input-group-text" id="basic-addon1">Price</span>
-          </div>
-          <input
-            id="id-price"
-            type="text"
-            class="form-control"
-            placeholder="Username"
-            aria-label="Username"
-            aria-describedby="basic-addon1"
-          />
-        </div>
-      </div>
-      <div class="row">
-        <button type="button" id="submit-button" class="btn btn-secondary">Save</button>
+        <input id="id-price" type="text" class="form-control" placeholder="Username" aria-label="Username"
+          aria-describedby="basic-addon1" />
       </div>
     </div>
+    <div class="row">
+      <button type="button" id="submit-button" class="btn btn-secondary">Save</button>
+    </div>
+  </div>
 
-    <script src="Models/invoice.js"></script>
-    <script src="Models/customer.js"></script>
-    <script src="Models/supplier.js"></script>
-    <script src="Models//product.js"></script>
-    <script src="Models/invoiceItem.js"></script>
-    <script src="./Views/invoiceItemsView.js"></script>
-    <script src="generalJS.js"></script>
-  </body>
+  <script src="Models/invoice.js"></script>
+  <script src="Models/customer.js"></script>
+  <script src="Models/supplier.js"></script>
+  <script src="Models//product.js"></script>
+  <script src="Models/invoiceItem.js"></script>
+  <script src="./Views/invoiceItemsView.js"></script>
+  <script src="generalJS.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      console.log("ala bala");
+      $('#top-nav').load('/header.html');
+    });
+  </script>
+</body>
+
 </html>

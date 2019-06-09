@@ -18,6 +18,14 @@ body {
     padding: 40px;
     margin-left: -55px;
     margin-bottom: -20px;
+    color: white;
+    width: auto;
+    
+}
+.row {
+    color: white;
+    width: auto;
+    
 }
 /* .row-2 {
     padding: 20px;
