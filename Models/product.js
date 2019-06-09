@@ -22,8 +22,8 @@ Product.prototype.fetchData = async function(id) {
 };
 
 // to be linked to productsView
-Product.prototype.postData = function(data) {
-  fetch("http://delta.apexcode.ro/api/products", {
+Product.prototype.postData = async function(data) {
+  await fetch("http://delta.apexcode.ro/api/Products", {
     method: "POST",
     headers: { "Content-Type": "application/json", Accept: "application/json" },
     body: JSON.stringify(data)

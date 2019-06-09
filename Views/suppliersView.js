@@ -8,11 +8,15 @@ window.onload = function () {
   getAllSuppliersNames();
 
   $(document).on('click', '#supplier-list button', function () {
-    // let supplier = new Supplier();
     var selectedSupplierId = $(this).attr("id");
     getSupplierById(selectedSupplierId);
   });
 };
+
+async function getData() {
+  let suppliers = new Suppliers();
+  await suppliers.fetchData();
+}
 
 async function getSupplierById(id) {
   let supplier = new Supplier();
@@ -22,18 +26,10 @@ async function getSupplierById(id) {
   $("#supplier-id").val(supplier.Id);
 }
 
-async function getData() {
-  let suppliers = new Suppliers();
-  await suppliers.fetchData();
-}
-
 // event de post new supplier
 function addOnPostEventListner(supplier) {
   document.getElementById("suppliers-post").addEventListener("click", () => {
     let data = gatherPostInputData();
-    if(supplier.postData(data)){
-
-    }
     supplier.postData(data);
     toggleSuccessAlert();
   });
@@ -51,6 +47,21 @@ function toggleSuccessAlert(){
 }
 
 function gatherPostInputData() {
+  let id = document.getElementById("supplier-id-add").value;
+  let name = document.getElementById("supplier-name-add").value;
+  let CUI = document.getElementById("supplier-cui-add").value;
+  return {
+    id: id,
+    Name: name,
+    CUI: CUI
+  };
+}
+
+function gatherDeleteInputdata() {
+  return document.getElementById("supplier-id").value;
+}
+
+function gatherUpdateInputData() {
   let id = document.getElementById("supplier-id").value;
   let name = document.getElementById("supplier-name").value;
   let CUI = document.getElementById("supplier-cui").value;
@@ -64,8 +75,9 @@ function gatherPostInputData() {
 // event de update supplier
 function addOnUpdateEventListner(supplier) {
   document.getElementById("suppliers-update").addEventListener("click", () => {
-    let data = gatherPostInputData();
+    let data = gatherUpdateInputData();
     let id = document.getElementById("supplier-id").value;
+    console.log("id",id)
     supplier.updateData(data, id);
   });
 }
@@ -79,9 +91,6 @@ function addOnDeleteEventListner(supplier) {
   });
 }
 
-function gatherDeleteInputdata() {
-  return document.getElementById("supplier-id").value;
-}
 
 async function getAllSuppliersNames() {
   let suppliers = new Suppliers();
