@@ -1,20 +1,20 @@
 window.onload = function() {
-  setWelcome();
+  // setWelcome();
 
-  let invoiceId = 8;  //de sters dupa ce avem un InvoiceId in URL 
+  // let invoiceId = 8;  //de sters dupa ce avem un InvoiceId in URL 
 
-  // de decomentat - >>>>  let invoiceId = getUrlParameter("invoiceId");
+  // // de decomentat - >>>>  let invoiceId = getUrlParameter("invoiceId");
   
-  document.getElementById("id-invoice").innerHTML = invoiceId;
+  // document.getElementById("id-invoice").innerHTML = invoiceId;
 
   populateCustomerAndSupplier();
-  populateSelect(invoiceId);
+  populateSelect();
 
   addOnSelectChangeEventListner();
-  addOnSaveClickEventLisnter(invoiceId);
+  addOnSaveClickEventLisnter();
 };
 
-async function populateCustomerAndSupplier(invoiceId) {
+async function populateCustomerAndSupplier() {
   let invoice = new Invoice();
   await invoice.fetchData(5);
 
@@ -27,7 +27,12 @@ async function populateCustomerAndSupplier(invoiceId) {
   document.getElementById("id-supplier").innerHTML = supplier.Name;
 }
 
-async function populateSelect(invoiceId) {
+async function populateSelect() {
+  let invoiceId = 8;  //de sters dupa ce avem un InvoiceId in URL 
+
+  // de decomentat - >>>>  let invoiceId = getUrlParameter("invoiceId");
+  
+  // document.getElementById("id-invoice").innerHTML = invoiceId;
   let product = new Product();
 
   await fetch("http://delta.apexcode.ro/api/Invoices/" + invoiceId + "/items", {
@@ -66,7 +71,9 @@ function addOnSelectChangeEventListner(currentProduct) {
   });
 }
 
-function addOnSaveClickEventLisnter(invoiceId) {
+function addOnSaveClickEventLisnter() {
+   let invoiceId = 8;  //de sters dupa ce avem un InvoiceId in URL   
+  // document.getElementById("id-invoice").innerHTML = invoiceId;
   document.getElementById("submit-button").addEventListener("click", () => {
     let quantity = document.getElementById("id-quantity").value;
     let price = document.getElementById("id-price").value;
