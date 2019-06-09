@@ -31,11 +31,8 @@ async function getData() {
 
   }
 
-  document.getElementById('items-table').innerHTML += html;
+  document.getElementById('data_table').innerHTML += html;
 
-
-
-  $("#data_table").append(html);
   console.log(invoices.items);
   console.log(invoices.items[0]);
 }
@@ -56,7 +53,7 @@ $(document).on('click', '#add-new-invoice', function () {
 });
 
 
-  $(document).on('click', '#items-table .delete', function () {
+  $(document).on('click', '#data_table .delete', function () {
     var selectedRow = $(this).attr("id");
     // console.log(selectedSupplierId);
     let invoicess = new Invoices();

@@ -28,4 +28,8 @@
     left: 20px;
     size: 30px;
 }
+#add-new-invoice {
+    position: relative;
+    top:70px;
+}
 
