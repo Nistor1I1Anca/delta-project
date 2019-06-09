@@ -1,12 +1,13 @@
 function Invoices(){
     this.items = [];
+   
 }
 
 Invoices.prototype.fetchData = async function(){
     //daca nu salvam this curent, inauntru cand suprascriu id-ul, o sa am alt current context: this
     let invoicesThis = this;
     await fetch(
-        'http://delta.apexcode.ro/api/invoices',{
+        'http://delta.apexcode.ro/api/invoices/',{
          method: 'GET'
     })
     .then(function(resp){
@@ -30,4 +31,22 @@ Invoices.prototype.fetchData = async function(){
     .catch(function(e){
         alert('fetch error:' + e);
     })
+    Invoice.prototype.updateData = function (data) {
+        fetch("http://delta.apexcode.ro/api/products/" + id, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify(data)
+        })
+          // .then(resp => resp.json())
+          .then(jsonResp => console.log(jsonResp))
+          .catch(e => alert(`post error: ${e}`));
+      };
+    Invoices.prototype.deleteData = function (id) {
+        fetch("http://delta.apexcode.ro/api/invoices/" + id, {
+          method: "DELETE"
+        })
+          .then(resp => resp.json())
+          .then(jsonResp => console.log(jsonResp))
+          .catch(e => alert(`post error: ${e}`));
+      };
 };

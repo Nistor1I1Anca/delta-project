@@ -126,6 +126,7 @@ async function getAllCustomersNames() {
     document.getElementById('customer-dropdown').innerHTML += html;
 }
 
+
 async function getAllInvoiceItems(id) {
     let invoiceItems = new InvoiceItems();
     let invoiceItemBaseUrl = "http://127.0.0.1:5500/invoice-item.html/";
