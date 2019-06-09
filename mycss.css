@@ -36,4 +36,12 @@ body {
   .layout-1 {
       margin-left: -23px;
   }
- 
+  @media screen and (max-width:800px) {
+    body {
+      width:100%; 
+    }
+}
+
+input {
+    background-color: #000000;
+}
