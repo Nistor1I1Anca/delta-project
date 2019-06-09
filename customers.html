@@ -27,7 +27,7 @@
         <div class="input-group-prepend">
           <span class="input-group-text">Id</span>
         </div>
-        <input type="text" id="id-suppliers" class="col-md-6 col-sm-12" />
+        <input type="text" id="id-customers" class="col-md-6 col-sm-12" />
       </div>
     </div>
     <div class="row">
@@ -36,7 +36,7 @@
             
           <span class="input-group-text">Name</span>
         </div>
-        <input type="text" id="name-suppliers" class="col-md-6 col-sm-12" />
+        <input type="text" id="customers-name" class="col-md-6 col-sm-12" />
       </div>
     </div>
     <div class="row">
@@ -44,36 +44,23 @@
         <div class="input-group-prepend">
           <span class="input-group-text">CUI</span>
         </div>
-        <input type="text" id="CUI-suppliers" class="col-md-6 col-sm-12" />
+        <input type="text" id="customers-cui" class="col-md-6 col-sm-12" />
       </div>
     </div>
     <div class="row">
-      <button type="button" id="suppliers-post" class="btn btn-success mr-3">
+      <button type="button" id="customers-post" class="btn btn-success mr-3">
         Post
       </button>
-      <!-- <button type="button" id="suppliers-update" class="btn btn-secondary ml-3 mr-3">
-        Update
-      </button>
-      <button type="button" id="suppliers-delete" class="btn btn-secondary ml-3">
-        Delete
-      </button> -->
     </div>
   </div>
   <br>
   <div class="container list">
     <div class="row">
-      <h1>Customers</h1>
+      <h1>Customers List</h1>
     </div>
-
     <div class="row">
       <div class="col-sm-3">
-        <div class="list-group" id="supplier-list">
-         <!-- <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button> -->
-          <!-- <li class="list-group-item">Supplier1</li>
-          <li class="list-group-item">Supplier2</li>
-          <li class="list-group-item">Supplier3</li>
-          <li class="list-group-item">Supplier4</li>
-          <li class="list-group-item">Supplier5</li> -->
+        <div class="list-group" id="customer-list">
           </div>
       </div>
       <div class="col-sm-6">
@@ -81,32 +68,32 @@
           <div class="input-group-prepend">
             <div class="input-group-text" id="btnGroupAddon">Name</div>
           </div>
-          <input type="text" id="supplier-name" class="form-control" aria-label="Input group example">
+          <input type="text" id="customer-name-add" class="form-control" aria-label="Input group example">
         </div>
         <br>
         <div class="input-group">
           <div class="input-group-prepend">
             <div class="input-group-text" id="btnGroupAddon">CUI</div>
           </div>
-          <input type="text" id="supplier-cui" class="form-control" aria-label="Input group example">
+          <input type="text" id="customer-cui-add" class="form-control" aria-label="Input group example">
         </div>
         <br>
         <div class="input-group">
             <div class="input-group-prepend">
               <div class="input-group-text" id="btnGroupAddon">ID</div>
             </div>
-            <input type="text" id="supplier-id" class="form-control" aria-label="Input group example">
+            <input type="text" id="customer-id-add" class="form-control" aria-label="Input group example">
           </div>
         <br>
-        <button type="button" id="suppliers-update" class="btn btn-success">Update</button>
-        <button type="button" id="suppliers-delete" class="btn btn-danger">Delete</button>
+        <button type="button" id="customers-update" class="btn btn-success">Update</button>
+        <button type="button" id="customers-delete" class="btn btn-danger">Delete</button>
       </div>
     </div>
   </div>
 
-  <script src=".\Views\suppliersView.js"></script>
-  <script src=".\Models\supplier.js"></script>
-  <script src=".\Models\suppliers.js"></script>
+  <script src=".\Views\customersView.js"></script>
+  <script src=".\Models\customer.js"></script>
+  <script src=".\Models\customers.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   <script>
       $(document).ready(function () {

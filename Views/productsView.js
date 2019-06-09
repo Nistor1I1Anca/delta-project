@@ -1,5 +1,5 @@
 window.onload = function() {
-  getData();
+  //getData();
 
   let product = new Product();
   addOnPostClickEventListner(product);
@@ -8,7 +8,6 @@ window.onload = function() {
   getAllProductNames()
 
   $(document).on('click', '#product-list button', function () {
-    // let supplier = new Supplier();
     var selectedProductId = $(this).attr("id");
     getProductById(selectedProductId, product);
   });
@@ -17,8 +16,8 @@ window.onload = function() {
 async function getData() {
   let products = new Products();
   await products.fetchData();
-  console.log(products.items);
-  console.log(products.items[1]);
+  // console.log(products.items);
+  // console.log(products.items[1]);
 }
 
 async function getAllProductNames() {
@@ -64,20 +63,20 @@ function gatherPutInputData() {
   let type = document.getElementById("product-type").value;
   let id = document.getElementById("product-id").value;
 
-  return (data = {
+  return {
     Name: name,
     ProductType: type,
     Id: id
-  });
+  };
 }
 function gatherInputdata() {
   let id = document.getElementById("product-id-add").value;
   let name = document.getElementById("product-name-add").value;
   let type = document.getElementById("product-type-add").value;
 
-  return (data = {
-    Id: id,
+  return {
+    id: id,
     Name: name,
     ProductType: type
-  });
+  };
 }

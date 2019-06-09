@@ -5,7 +5,6 @@ function Customer() {
 }
 
 Customer.prototype.fetchData = async function(id) {
-  //daca nu salvam this curent, inauntru cand suprascriu id-ul, o sa am alt current context: this
   let customerThis = this;
   await fetch("http://delta.apexcode.ro/api/customers/" + id, {
     method: "GET",
@@ -26,8 +25,8 @@ Customer.prototype.fetchData = async function(id) {
     });
 };
 
-Customer.prototype.postData = function(data) {
-  fetch("http://delta.apexcode.ro/api/customers", {
+Customer.prototype.postData = async function(data) {
+  await fetch("http://delta.apexcode.ro/api/customers", {
     method: "POST",
     headers: { "Content-Type": "application/json", Accept: "application/json" },
     body: JSON.stringify(data)
@@ -43,7 +42,6 @@ Customer.prototype.updateData = function(data, id) {
     headers: { "Content-Type": "application/json", Accept: "application/json" },
     body: JSON.stringify(data)
   })
-    // .then(resp => resp.json())
     .then(jsonResp => {
       console.log(jsonResp);
       console.log(data);
