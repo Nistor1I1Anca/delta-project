@@ -53,3 +53,55 @@ body {
 input {
     background-color: #000000;
 }
+/* .nav-wrap {
+    display: block;
+    float: left;
+    
+} */
+nav {
+    display: block;
+    font-size: 1rem;
+    color: red;
+    background-color: transparent;
+    opacity: 70%;
+    width: 70%;
+    margin-left: -35px;
+ 
+    /* background-color: #f1f1f1; */
+}
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    /* justify-content: space-around; */
+}
+nav ul li {
+    cursor: pointer;
+    padding: 0.5rem;
+    flex: auto;
+    text-align: center;
+    transition: all .2s ease-in-out; 
+}
+nav ul li:hover {
+    list-style-type: none;
+    transform: scale(1.2);
+    opacity: 70%;
+    color: white;
+    border-bottom: 3px solid #ffffff;
+
+}
+  a:link {
+    text-decoration: none;
+  }
+  a:hover {
+      color: darkred;
+  }
+@media all and (max-width: 400px) {
+    nav ul {
+        flex-direction: column;
+    }
+    nav ul li {
+        text-align: center;
+    }
+}
