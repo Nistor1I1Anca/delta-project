@@ -35,6 +35,7 @@ function addOnPostEventListner(supplier) {
 
     }
     supplier.postData(data);
+    console.log(supplier);
     toggleSuccessAlert();
   });
 }

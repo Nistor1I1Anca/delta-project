@@ -19,15 +19,15 @@ async function getData() {
 
   var html = ``;
   for (let i = 0; i < invoices.items.length; i++) {
-    html += `<tr id="${invoices.items[i].Id}" class="invoice-items"></tr>`;
+    html += `<tr id="${invoices.items[i].Id}" class="invoice-items">`;
     html += `<td>${i + 1}</td>`;
     html += `<td>${invoices.items[i].Series}</td>`;
     html += `<td>${invoices.items[i].Number}</td>`;
     html += `<td>${invoices.items[i].Date}</td>`;
-    
-    html += `<td><button type="button" id="${invoices.items[i].Id}" class="btn btn-success btn-sm" data-action="edit">Edit</button>`;
-    html += `<button type="button" id="${invoices.items[i].Id}" class="btn btn-danger btn-sm" data-action="delete">Delete</button></td>`;
 
+    html += `<td><button type="button" id="${invoices.items[i].Id}" class="btn btn-success btn-md" data-action="edit">Edit</button>`;
+    html += `<button type="button" id="${invoices.items[i].Id}" class="btn btn-danger btn-md" data-action="delete">Delete</button></td>`;
+    html += `</tr>`;
 
   }
 
@@ -53,13 +53,29 @@ $(document).on('click', '#add-new-invoice', function () {
 });
 
 
-  $(document).on('click', '#data_table .delete', function () {
-    var selectedRow = $(this).attr("id");
-    // console.log(selectedSupplierId);
-    let invoicess = new Invoices();
-    invoicess.deleteData(selectedRow);
-    $(this).parent().parent().remove();
-  });
+$(document).on('click', 'button[data-action="delete"]', function () {
+  var selectedRow = $(this).attr("id");
+  // console.log(selectedSupplierId);
+  let invoices = new Invoices();
+  invoices.deleteData(selectedRow);
+  $(this).parent().parent().remove();
+  // var x = fetchInvoices();
+  // console.log("rowNumber",x.length);
+  // var x = document.getElementsByTagName("tr");
+  // console.log('rowsNumber', x.length);
+
+});
+
+// async function fetchInvoices() {
+//   console.log("hhhhh")
+//   let invoices = new Invoices();
+
+//   await invoices.fetchData();
+//   return invoices;
+// }
+
+
+
 
 
 
