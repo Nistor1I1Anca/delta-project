@@ -30,14 +30,14 @@
       </div>
     </div>
     <div class="row-1">
-      <h1>Customers</h1>
+      <h3>Customers</h3>
     </div>
     <div class="row">
       <div class="input-group input-group-sm mb-3">
         <div class="input-group-prepend">
           <span class="input-group-text">Id</span>
         </div>
-        <input type="text" id="id-customers" class="col-md-6 col-sm-12" />
+        <input type="text" id="id-customers" class="col-md-9 col-sm-12" />
       </div>
     </div>
     <div class="row">
@@ -46,7 +46,9 @@
 
           <span class="input-group-text">Name</span>
         </div>
-        <input type="text" id="customers-name" class="col-md-6 col-sm-12" />
+
+        <input type="text" id="customers-name" class="col-md-9 col-sm-12" />
+
       </div>
     </div>
     <div class="row">
@@ -54,29 +56,24 @@
         <div class="input-group-prepend">
           <span class="input-group-text">CUI</span>
         </div>
-        <input type="text" id="customers-cui" class="col-md-6 col-sm-12" />
+        <input type="text" id="customers-cui" class="col-md-9 col-sm-12" />
       </div>
     </div>
     <div class="row">
       <button type="button" id="customers-post" class="btn btn-success mr-3">
         Post
       </button>
-      <!-- <button type="button" id="suppliers-update" class="btn btn-secondary ml-3 mr-3">
-        Update
-      </button>
-      <button type="button" id="suppliers-delete" class="btn btn-secondary ml-3">
-        Delete
-      </button> -->
     </div>
   </div>
   <br>
+
   <div class="container list">
     <div class="row">
-      <h1>Customers</h1>
+      <h3 id="customers-id">Customers</h3>
     </div>
 
     <div class="row">
-      <div class="col-sm-3">
+      <div class="col-sm-3 order-2">
         <div class="list-group" id="customer-list">
         </div>
       </div>
@@ -106,7 +103,7 @@
         <button type="button" id="customers-delete" class="btn btn-danger">Delete</button>
       </div>
     </div>
-  </div>
+</div>
 
   <script src=".\Views\customersView.js"></script>
   <script src=".\Models\customer.js"></script>

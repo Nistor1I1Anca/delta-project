@@ -1,13 +1,11 @@
 .input-group-text {
     display: block;
-    width: 4.5vw;
+    width: 5rem;
     text-align: center;
     border-radius: 5px;   
 }
 
-.input-group {
-    color: green;
-}
+
 body {
     width: auto;
     font-family: 'Montserrat', sans-serif;
@@ -50,10 +48,12 @@ body {
     }
 }
 
-input {
-    background-color: #000000;
-}
-/* .nav-wrap {
+/* input {
+    display: block;
+    background-color: green;
+    width: 550px;
+} */
+/* .nav-wrap {11
     display: block;
     float: left;
     
@@ -81,12 +81,12 @@ nav ul li {
     padding: 0.5rem;
     flex: auto;
     text-align: center;
-    transition: all .2s ease-in-out; 
+    transition: all .2s ease-in-out;
+    
 }
 nav ul li:hover {
     list-style-type: none;
     transform: scale(1.2);
-    opacity: 70%;
     color: white;
     border-bottom: 3px solid #ffffff;
 
@@ -104,4 +104,19 @@ nav ul li:hover {
     nav ul li {
         text-align: center;
     }
+}
+#customers-id {
+    padding-top: 1.75rem;
+    padding-bottom: 1.25rem;
+
+}
+.list-group {
+    padding-right: -90px;
+}
+.col-sm-6 {
+    margin-left: -15px;
+}
+.input-group {
+    width: 520px;
+
 }
