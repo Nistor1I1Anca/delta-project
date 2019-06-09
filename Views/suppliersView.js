@@ -31,6 +31,7 @@ function addOnPostEventListner(supplier) {
   document.getElementById("suppliers-post").addEventListener("click", () => {
     let data = gatherPostInputData();
     supplier.postData(data);
+    console.log(supplier);
     toggleSuccessAlert();
   });
 }
