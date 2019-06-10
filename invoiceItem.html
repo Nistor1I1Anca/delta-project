@@ -35,6 +35,16 @@
     <div class="col-lg-12">
       <div id="top-nav"></div>
     </div>
+    <div class="row">
+      <div class="alert alert-info d-none" id="bsalert">
+        <a href="#" class="close" id="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong></strong>Success! Operation successfull!
+      </div>
+      <div class="alert alert-danger d-none" id="danger-alert">
+        <a href="#" class="close" id="danger-alert-close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong></strong>Error! Operation failed! Please try again later!
+      </div>
+    </div>
     <div class="row mt-3">
       <div class="col-md-3 col-sm-3 col-lg-2">
         <h4>Product:</h4>
@@ -56,19 +66,19 @@
       </div>
     </div>
     <div class="row mt-3" id="add-item-to-invoice-row">
-        <div class="col-md-3 col-sm-3 col-lg-2">
-          <h4>Invoice:</h4>
-        </div>
-        <div class="col-md-8 col-sm-8 col-lg-6">
-          <!-- <div class="input-group mb-3"> -->
-           <div class="col-sm-4">
-              <button class="btn dropdown-toggle" id="add-item-to-invoice" type="button" data-toggle="dropdown">Samsung
-                <span class="caret"></span></button>
-              <ul class="dropdown-menu" id="add-item-dropdown">
-              </ul>
-            </div>
+      <div class="col-md-3 col-sm-3 col-lg-2">
+        <h4>Invoice:</h4>
+      </div>
+      <div class="col-md-8 col-sm-8 col-lg-6">
+        <!-- <div class="input-group mb-3"> -->
+        <div class="col-sm-4">
+          <button class="btn dropdown-toggle" id="add-item-to-invoice" type="button" data-toggle="dropdown">Samsung
+            <span class="caret"></span></button>
+          <ul class="dropdown-menu" id="add-item-dropdown">
+          </ul>
         </div>
       </div>
+    </div>
 
     <!-- <div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
