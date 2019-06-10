@@ -8,12 +8,10 @@
   <link rel="stylesheet" href="styles.css" type="text/css">
   <link rel="stylesheet" href="mycss.css" type="text/css">
   <title>Products</title>
-  <link rel="shortcut icon" href="https://www.flickr.com/photos/162338714@N08" />
-
   <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
   <link rel="stylesheet" href="mycss.css" type="text/css">
-  <!-- <link rel="stylesheet" href="styles.css" type="text/css"> -->
+  <link rel="stylesheet" href="styles.css" type="text/css">
 </head>
 
 <body>
@@ -39,14 +37,14 @@
       </div>
     </div>
     <div class="row-1">
-      <h3>Products</h3>
+      <h1>Products</h1>
     </div>
     <div class="row">
       <div class="input-group input-group-sm mb-3">
         <div class="input-group-prepend">
           <span class="input-group-text">Id</span>
         </div>
-        <input type="text" id="product-id-add" class="col-md-9 col-sm-12" />
+        <input type="text" id="product-id-add" class="col-md-6 col-sm-12" />
       </div>
     </div>
     <div class="row">
@@ -54,7 +52,7 @@
         <div class="input-group-prepend">
           <span class="input-group-text">Name</span>
         </div>
-        <input type="text" id="product-name-add" class="col-md-9 col-sm-12" />
+        <input type="text" id="product-name-add" class="col-md-6 col-sm-12" />
       </div>
     </div>
     <div class="row">
@@ -62,7 +60,7 @@
         <div class="input-group-prepend">
           <span class="input-group-text">Product Type</span>
         </div>
-        <input type="text" id="product-type-add" class="col-md-9 col-sm-12" />
+        <input type="text" id="product-type-add" class="col-md-6 col-sm-12" />
       </div>
     </div>
     <div class="row">
@@ -75,22 +73,29 @@
   <div class="layout-1">
     <div class="container list">
       <div class="row">
-          <h3 id="h3-wrap">Products List</h3>
+        <h1 id="ei">Products list</h1>
       </div>
+
       <div class="row">
-        <div class="col-sm-3 order-2">
+        <div class="col-sm-3">
           <div class="list-group" id="product-list">
+            <!-- <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button> -->
+            <!-- <li class="list-group-item">Product</li>
+              <li class="list-group-item">Product</li>
+              <li class="list-group-item">Product</li>
+              <li class="list-group-item">Product</li>
+              <li class="list-group-item">Product</li> -->
           </div>
         </div>
         <div class="col-sm-6">
-          <div class="input-group input-group-sm">
+          <div class="input-group">
             <div class="input-group-prepend">
               <div class="input-group-text" id="btnGroupAddon">Name</div>
             </div>
             <input type="text" id="product-name" class="form-control" aria-label="Input group example" />
           </div>
           <br />
-          <div class="input-group input-group-sm">
+          <div class="input-group">
             <div class="input-group-prepend">
               <div class="input-group-text" id="btnGroupAddon">
                 Product Type
@@ -99,7 +104,7 @@
             <input type="text" id="product-type" class="form-control" aria-label="Input group example" />
           </div>
           <br />
-          <div class="input-group input-group-sm">
+          <div class="input-group">
             <div class="input-group-prepend">
               <div class="input-group-text" id="btnGroupAddon">ID</div>
             </div>

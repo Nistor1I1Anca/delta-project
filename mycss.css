@@ -1,9 +1,11 @@
 .input-group-text {
     display: block;
-    width: 8rem;
+    width: 5rem;
     text-align: center;
     border-radius: 5px;   
 }
+
+
 body {
     width: auto;
     font-family: 'Montserrat', sans-serif;
@@ -12,75 +14,101 @@ body {
 }
 .row-1 {
     padding: 40px;
-    margin-top: 50px;
     margin-left: -55px;
     margin-bottom: -20px;
     color: white;
-    width: auto; 
+    width: auto;
+    
 }
 .row {
     color: white;
     width: auto;
+    
 }
-@media screen and (max-width:800px) {
+/* .row-2 {
+    padding: 20px;
+    margin-left: -20px;
+}
+/* .list-group (even) { */
+    /* background-color: #f2f2f2;
+  } */ 
+ 
+  #ei {
+      display: inline;
+      margin-left: 17px;
+      padding-bottom: 20px;
+      padding-top: 40px;
+  }
+  .layout-1 {
+      margin-left: -23px;
+  }
+  @media screen and (max-width:800px) {
     body {
       width:100%; 
+    }
 }
-}
-.nav-wrap {
-    margin-top: 30px;
-    margin-left: -25px;
-}
+
+/* input {
+    display: block;
+    background-color: green;
+    width: 550px;
+} */
+/* .nav-wrap {11
+    display: block;
+    float: left;
+    
+} */
 nav {
     display: block;
-    font-size: 1.25rem;
+    font-size: 1rem;
+    color: red;
     background-color: transparent;
-    width: 85%;
+    opacity: 70%;
+    width: 70%;
     margin-left: -35px;
+ 
+    /* background-color: #f1f1f1; */
 }
 nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     display: flex;
+    /* justify-content: space-around; */
 }
 nav ul li {
-
     cursor: pointer;
     padding: 0.5rem;
     flex: auto;
     text-align: center;
     transition: all .2s ease-in-out;
+    
 }
 nav ul li:hover {
     list-style-type: none;
     transform: scale(1.2);
+    color: white;
     border-bottom: 3px solid #ffffff;
 
 }
-a { 
-    font-size: 1.3rem;
-    font-weight: bolder;
-    color: rgb(116, 111, 106);
-}
-a:link {
+  a:link {
     text-decoration: none;
-}
-a:hover {
-
+  }
+  a:hover {
       color: darkred;
- }
+  }
 @media all and (max-width: 400px) {
-nav ul {
+    nav ul {
         flex-direction: column;
-}
-nav ul li {
+    }
+    nav ul li {
         text-align: center;
-}
+    }
 }
 #customers-id {
     padding-top: 1.75rem;
     padding-bottom: 1.25rem;
+
 }
 .list-group {
     padding-right: -90px;
@@ -90,109 +118,5 @@ nav ul li {
 }
 .input-group {
     width: 520px;
+
 }
-.form-control {
-    display: inline-block;
-    margin-bottom: 10px;
-}
-#h3-wrap {
-    padding-top: 40px;
-    padding-bottom: 20px;
-}
- .input-group-sm {
-    margin-top: 0 !important; 
-}
-.problematic-button {
-    margin-top: -15px;
-    margin-left: -15px;
-}
-#product-h3 {
-    padding: 40px;
-    margin-top: 50px;
-    margin-left: -38px;
-    margin-bottom: -10px;
-    color: white;
-    width: auto; 
-}
-.custom-select {
-    display: block;
-    width: 520px;
-    text-align: center;
-    font-family: 'Montserrat', sans-serif;
-}
-#select {
-    text-align: center;
-}
-#data_table {
-    margin-left: -15px;
-    width: 877px;
-    color: white;
-}
-#add-new-invoice {
-    margin-left: -14px;
-}
-.plus-button-supplier {
-    margin-top: -65px;
-    margin-left: 75px;
-}
-.plus-button-customer {
-    margin-top: -65px;
-    margin-left: 115px;
-}
-.date-class {
-    margin-top: 40px;
-    margin-left: -60px;
-    width: 330px;
-}
-.series-class {
-    margin-left: 5px;
-    width: 330px;
-}
-.cui-customer {
-    width: 150px;
-    margin-top: -150px;
-    margin-left: 710px;
-}
-#supplier {
-    background-color: white;
-    color: black;
-    margin-left: -40px;
-    margin-top: -35px;
-}
-.supplier-invoice-h5 {
-    margin-left: -25px;
-}
-.invoice-title {
-    margin-left: -10px;
-    padding-bottom: 10px;
-}
-.cui-supplier {
-    margin-top: -50px;
-    margin-left: -40px;
-}
-#customer-button {
-    background-color: white;
-    color: black;
-    margin-top: -35px;
-}
-.add-button {
-    margin-top: 40px;
-    margin-left: -5px;
-    width: 100px;
-}
-#series-text {
-    margin-left: 5px;
-}
-#products-table {
-    color: white;
-    margin-top: 40px;
-    margin-left: -10px;
-}
-#update-invoice {
-    margin-left: -5px;
-    width: 100px;
-}
-.table-head {
-    /* text-align: center; */
-    pointer-events: none;
-  }
