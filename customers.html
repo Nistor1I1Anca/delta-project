@@ -6,16 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>Customers</title>
+  <link rel="shortcut icon" href="https://www.flickr.com/photos/162338714@N08" />
   <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
   <link rel="stylesheet" href="mycss.css" type="text/css">
-  <link rel="stylesheet" href="styles.css" type="text/css">
-  <!-- <script src='main.js'></script> -->
-
 </head>
 
 <body>
   <div class="container">
+<<<<<<< HEAD
     <div class='col-lg-12'>
       <div id="top-nav"></div>
     </div>
@@ -23,6 +22,10 @@
       <div class="alert alert-info d-none" id="bsalert">
         <a href="#" class="close" id="close" data-dismiss="alert" aria-label="close">&times;</a>
         <strong></strong>Success! Operation successfull!
+=======
+      <div class='col-lg-12'>
+          <div id="top-nav"></div>
+>>>>>>> versiunea mea
       </div>
       <div class="alert alert-danger d-none" id="danger-alert">
         <a href="#" class="close" id="danger-alert-close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -43,12 +46,10 @@
     <div class="row">
       <div class="input-group input-group-sm mb-3">
         <div class="input-group-prepend">
-
           <span class="input-group-text">Name</span>
         </div>
 
         <input type="text" id="customers-name" class="col-md-9 col-sm-12" />
-
       </div>
     </div>
     <div class="row">
@@ -66,10 +67,10 @@
     </div>
   </div>
   <br>
-
   <div class="container list">
     <div class="row">
-      <h3 id="customers-id">Customers</h3>
+      <!-- <h3 id="customers-id">Customers</h3> -->
+      <h3 id="h3-wrap">Customers List</h3>
     </div>
 
     <div class="row">
@@ -78,23 +79,29 @@
         </div>
       </div>
       <div class="col-sm-6">
-        <div class="input-group">
+        <div class="input-group input-group-sm">
           <div class="input-group-prepend">
-            <div class="input-group-text" id="btnGroupAddon">Name</div>
+            <span class="input-group-text">Name</span>
           </div>
-          <input type="text" id="customer-name-add" class="form-control" aria-label="Input group example">
+          <input type="text" id="customer-name" class="form-control" aria-label="Input group example">
         </div>
         <br>
-        <div class="input-group">
+        <div class="input-group input-group-sm">
           <div class="input-group-prepend">
-            <div class="input-group-text" id="btnGroupAddon">CUI</div>
+            <span class="input-group-text">CUI</span>
           </div>
-          <input type="text" id="customer-cui-add" class="form-control" aria-label="Input group example">
+          <input type="text" id="customer-cui" class="form-control" aria-label="Input group example">
         </div>
         <br>
-        <div class="input-group">
+        <!-- <div class="input-group">
           <div class="input-group-prepend">
-            <div class="input-group-text" id="btnGroupAddon">ID</div>
+            <div class="input-group-text" id="btnGroupAddon">ID</div> -->
+
+        <div class="input-group input-group-sm">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Id</span>
+            </div>
+            <input type="text" id="customer-id" class="form-control" aria-label="Input group example">>
           </div>
           <input type="text" id="customer-id-add" class="form-control" aria-label="Input group example">
         </div>
@@ -103,18 +110,16 @@
         <button type="button" id="customers-delete" class="btn btn-danger">Delete</button>
       </div>
     </div>
-</div>
+  </div>
 
   <script src=".\Views\customersView.js"></script>
   <script src=".\Models\customer.js"></script>
   <script src=".\Models\customers.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script> 
   <script>
     $(document).ready(function () {
       $('#top-nav').load('/header.html');
     });
   </script>
-
 </body>
-
 </html>

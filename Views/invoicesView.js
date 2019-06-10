@@ -14,8 +14,16 @@ async function getData() {
     html += `<td>${invoices.items[i].Series}</td>`;
     html += `<td>${invoices.items[i].Number}</td>`;
     html += `<td>${invoices.items[i].Date}</td>`;
+<<<<<<< HEAD
     html += `<td><button type="button" id="${invoices.items[i].Id}" class="btn btn-success btn-sm" data-action="edit">Edit</button>`;
     html += `<button type="button" id="${invoices.items[i].Id}" class="btn btn-danger btn-sm" data-action="delete">Delete</button></td>`;
+=======
+
+    html += `<td><button type="button" id="${invoices.items[i].Id}" class="btn btn-success " data-action="edit">&nbsp;&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</button>&nbsp;`;
+    html += `<button type="button" id="${invoices.items[i].Id}" class="btn btn-danger " data-action="delete">Delete</button></td>`;
+    html += `</tr>`;
+
+>>>>>>> versiunea mea
   }
 
   document.getElementById('data_table').innerHTML += html;
