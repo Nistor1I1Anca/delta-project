@@ -28,13 +28,15 @@ async function getData() {
 }
 
 // event de post new supplier
+// function addOnPostEventListner(supplier) {
 function addOnPostEventListner(supplier) {
+    // let response = supplier.postData(data)
   document.getElementById("suppliers-post").addEventListener("click", () => {
     let data = gatherPostInputData();
-    if(supplier.postData(data)){
+    let response = supplier.postData(data);
+    console.log("response: ", response);
+    // document.cookie = "status=6";
 
-    }
-    supplier.postData(data);
     toggleSuccessAlert();
   });
 }
@@ -45,14 +47,14 @@ document.getElementById("close").addEventListener("click", () => {
 
 });
 
-function toggleSuccessAlert(){
+function toggleSuccessAlert() {
   var el = document.getElementById('bsalert');
   el.className = 'alert alert-info';
 }
 
 function gatherPostInputData() {
-  let id = document.getElementById("supplier-id").value;
-  let name = document.getElementById("supplier-name").value;
+  let id = document.getElementById("supplier-id-add").value;
+  let name = document.getElementById("supplier-name-add").value;
   let CUI = document.getElementById("supplier-cui").value;
   return {
     id: id,

@@ -4,6 +4,7 @@ function Products(){
 
 Products.prototype.fetchData =  async function(){
     //daca nu salvam this curent, inauntru cand suprascriu id-ul, o sa am alt current context: this
+    console.log("test daca intra");
     let productsThis = this;
     await fetch(
        'http://delta.apexcode.ro/api/products',{

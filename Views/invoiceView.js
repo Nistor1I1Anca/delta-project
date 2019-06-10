@@ -141,8 +141,8 @@ async function getAllInvoiceItems(id) {
         var value = invoiceItems.items[i].Quantity * invoiceItems.items[i].Price;
         html += `<td>${value}</td>`;
         html += `<td>${invoiceItems.items[i].VAT}</td>`;
-        html += `<td><a href ="${invoiceItemBaseUrl}${invoiceItems.items[i].Id}" type="button" id="edit-column" class="btn btn-info btn-sm">Edit</a>`;
-        html += `<a type="button" id="${invoiceItems.items[i].Id}" class="btn btn-info btn-sm delete">Delete</a></td>`;
+        html += `<td><a id ="${invoiceItems.items[i].Id}" type="button" data-action="edit" class="btn btn-info btn-sm">Edit</a>`;
+        html += `<a type="button" id="${invoiceItems.items[i].Id}" data-action="delete" class="btn btn-info btn-sm delete">Delete</a></td>`;
     }
     document.getElementById('items-table').innerHTML += html;
 }
@@ -158,7 +158,6 @@ $(document).on('click', '#items-table .delete', function () {
 $(document).on('click', '#update-invoice', function () {
     var invoiceID = getUrlParameter("invoiceId");
     let invoice = new Invoice();
-    // invoice.updateData(invoiceID);
 
     let invoiceNumber = document.getElementById("number").value;
     let invoiceSeries = document.getElementById("series").value;
@@ -178,7 +177,6 @@ $(document).on('click', '#update-invoice', function () {
 });
 
 $(document).on('click', '#add-invoice', function () {
-    // style.display="none"
     let invoice = new Invoice();
     let invoiceNumber = document.getElementById("number").value;
     let invoiceSeries = document.getElementById("series").value;
@@ -204,3 +202,11 @@ function getUrlParameter(name) {
     var results = regex.exec(location.search);
     return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
 };
+
+$(document).on('click', 'a[data-action="edit"]', function () {
+    var invoiceID = getUrlParameter("invoiceId");
+    var invoiceItemId = $(this).attr("id");
+    console.log(invoiceItemId);
+    var queryString = "?invoiceId=" + invoiceID + "&invoiceItemId=" + invoiceItemId;
+    window.location.href = "invoiceItem.html" + queryString;
+});

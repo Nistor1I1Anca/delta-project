@@ -4,27 +4,27 @@ function Supplier() {
   this.CUI = null;
 }
 
-Supplier.prototype.fetchData = async function(id) {
+Supplier.prototype.fetchData = async function (id) {
   //daca nu salvam this curent, inauntru cand suprascriu id-ul, o sa am alt current context: this
   let supplierThis = this;
   await fetch("http://delta.apexcode.ro/api/suppliers/" + id, {
     method: "GET"
   })
     .then(resp => resp.json())
-    .then(function(supplier) {
+    .then(function (supplier) {
       supplierThis.Id = supplier.Id;
       supplierThis.Name = supplier.Name;
       supplierThis.CUI = supplier.CUI;
     })
-    .catch(function(e) {
+    .catch(function (e) {
       alert("fetch error:" + e);
     });
 };
 
 // to be linked to suppliersView
-Supplier.prototype.postData = function(data) {
+Supplier.prototype.postData = async function (data) {
   console.log("intra", data);
-  fetch("http://delta.apexcode.ro/api/suppliers", {
+  await fetch("http://delta.apexcode.ro/api/suppliers", {
     method: "POST",
     mode: "cors",
     headers: {
@@ -33,15 +33,16 @@ Supplier.prototype.postData = function(data) {
     },
     body: JSON.stringify(data)
   })
-    .then(resp => resp.json())
-    .then(function(jsonResp) {
-      console.log(jsonResp);
+    // .then(resp => resp.json())
+    .then(function (jsonResp) {
+      console.log("jsonResp:", jsonResp.status);
+      document.cookie = "status="+ jsonResp.status;
     })
     .catch(e => alert(`post error: ${e}`));
 };
 
 // to be linked to suppliersView
-Supplier.prototype.updateData = function(data, id) {
+Supplier.prototype.updateData = function (data, id) {
   console.log(id, "ajunge");
   console.log(data, "intra");
   fetch("http://delta.apexcode.ro/api/suppliers/" + id, {
@@ -58,7 +59,7 @@ Supplier.prototype.updateData = function(data, id) {
 };
 
 // to be linked to suppliersView
-Supplier.prototype.deleteData = function(id) {
+Supplier.prototype.deleteData = function (id) {
   fetch("http://delta.apexcode.ro/api/suppliers/" + id, {
     method: "DELETE"
   })

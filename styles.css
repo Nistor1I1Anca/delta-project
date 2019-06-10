@@ -16,9 +16,9 @@
 #arrow{
     margin-left: 2px;
 }
-#edit-column{
+/* #edit-column{
 margin-right: 4px;
-}
+} */
 #products-table{
     margin-top: 60px;
 }
@@ -27,4 +27,7 @@ margin-right: 4px;
 }
 #wrapper #top-nav{
     margin-bottom: 10px;
+}
+#update-button{
+    margin-right: 30px;
 }
