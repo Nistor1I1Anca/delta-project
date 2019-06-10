@@ -34,13 +34,13 @@ Supplier.prototype.postData = async function (data) {
   })
     // .then(resp => resp.json())
     .then(function (jsonResp) {
-      document.cookie = "status="+ jsonResp.status;
+      document.cookie = "status=" + jsonResp.status;
     })
     .catch(e => alert(`post error: ${e}`));
 };
 
 // to be linked to suppliersView
-Supplier.prototype.updateData =async function (data, id) {
+Supplier.prototype.updateData = async function (data, id) {
   await fetch("http://delta.apexcode.ro/api/suppliers/" + id, {
     method: "PUT",
     mode: "cors",
@@ -50,16 +50,21 @@ Supplier.prototype.updateData =async function (data, id) {
     },
     body: JSON.stringify(data)
   })
-    .then(jsonResp => console.log(jsonResp))
+    .then(function (jsonResp) {
+      document.cookie = "status=" + jsonResp.status;
+    })
+    // .then(jsonResp => console.log(jsonResp))
     .catch(e => alert(`post error: ${e}`));
 };
 
 // to be linked to suppliersView
-Supplier.prototype.deleteData =async function (id) {
+Supplier.prototype.deleteData = async function (id) {
   await fetch("http://delta.apexcode.ro/api/suppliers/" + id, {
     method: "DELETE"
   })
     .then(resp => resp.json())
-    .then(jsonResp => console.log(jsonResp))
+    .then(function (jsonResp) {
+      document.cookie = "status=" + jsonResp.status;
+    })
     .catch(e => alert(`post error: ${e}`));
 };

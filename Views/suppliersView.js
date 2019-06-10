@@ -29,31 +29,40 @@ async function getSupplierById(id) {
 // event de post new supplier
 // function addOnPostEventListner(supplier) {
 function addOnPostEventListner(supplier) {
-    // let response = supplier.postData(data)
+  // let response = supplier.postData(data)
   document.getElementById("suppliers-post").addEventListener("click", () => {
     let data = gatherPostInputData();
     let response = supplier.postData(data);
-    console.log("response: ", response);
-    // document.cookie = "status=6";
-    
-    
-    
-    
-    
-    
-    toggleSuccessAlert();
+    var responseStatus = getCookie("status");
+    console.log(responseStatus);
+    if (responseStatus == "201" || responseStatus == "204" || responseStatus == "200") {
+      toggleSuccessAlert();
+    }
+    else if (responseStatus == "400" || responseStatus == "401" || responseStatus == "402" ||
+      responseStatus == "404" || responseStatus == "500" || responseStatus == "501") {
+      toggleUnsuccessAlert()
+    }
   });
 }
 
 document.getElementById("close").addEventListener("click", () => {
   var el = document.getElementById('bsalert');
   el.className = 'd-none';
+});
 
+document.getElementById("danger-alert-close").addEventListener("click", () => {
+  var el = document.getElementById('danger-alert');
+  el.className = 'd-none';
 });
 
 function toggleSuccessAlert() {
   var el = document.getElementById('bsalert');
   el.className = 'alert alert-info';
+}
+
+function toggleUnsuccessAlert() {
+  var el = document.getElementById('danger-alert');
+  el.className = 'alert alert-danger';
 }
 
 function gatherPostInputData() {
@@ -73,6 +82,15 @@ function addOnUpdateEventListner(supplier) {
     let data = gatherUpdateInputData();
     let id = document.getElementById("supplier-id").value;
     supplier.updateData(data, id);
+    var responseStatus = getCookie("status");
+    console.log(responseStatus);
+    if (responseStatus == "201" || responseStatus == "204" || responseStatus == "200") {
+      toggleSuccessAlert();
+    }
+    else if (responseStatus == "400" || responseStatus == "401" || responseStatus == "402" ||
+      responseStatus == "404" || responseStatus == "500" || responseStatus == "501") {
+      toggleUnsuccessAlert()
+    }
   });
 }
 
@@ -82,6 +100,15 @@ function addOnDeleteEventListner(supplier) {
     let data = gatherDeleteInputdata();
     let id = document.getElementById("supplier-id").value;
     supplier.deleteData(data, id);
+    var responseStatus = getCookie("status");
+    console.log(responseStatus);
+    if (responseStatus == "201" || responseStatus == "204" || responseStatus == "200") {
+      toggleSuccessAlert();
+    }
+    else if (responseStatus == "400" || responseStatus == "401" || responseStatus == "402" ||
+      responseStatus == "404" || responseStatus == "500" || responseStatus == "501") {
+      toggleUnsuccessAlert()
+    }
   });
 }
 
@@ -111,3 +138,18 @@ function gatherUpdateInputData() {
   };
 }
 
+function getCookie(cname) {
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for (var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}

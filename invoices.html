@@ -16,14 +16,23 @@
 
 <body>
     <div id="wrapper">
-
         <div class='col-lg-12'>
             <div id="top-nav"></div>
         </div>
+        <div class="row">
+            <div class="alert alert-info d-none" id="bsalert">
+                <a href="#" class="close" id="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong></strong>Success! Operation successfull!
+            </div>
+            <div class="alert alert-danger d-none" id="danger-alert">
+                <a href="#" class="close" id="danger-alert-close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong></strong>Error! Operation failed! Please try again later!
+            </div>
+        </div>
         <div class='col-lg-12'>
             <div class="row">
-                    <table cellspacing=20 cellpadding=20 id="data_table" border=2 width="700" height="150">
-                            <tr>
+                <table cellspacing=20 cellpadding=20 id="data_table" border=2 width="700" height="150">
+                    <tr>
                         <th>No.crt</th>
                         <th>Series</th>
                         <th>Number</th>
