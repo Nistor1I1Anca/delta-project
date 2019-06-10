@@ -35,12 +35,12 @@ $(document).on('click', '#add-new-invoice', function () {
 });
 
 
-  $(document).on('click', '#data_table .delete', function () {
-    var selectedRow = $(this).attr("id");
-    let invoicess = new Invoices();
-    invoicess.deleteData(selectedRow);
-    $(this).parent().parent().remove();
-  });
+$(document).on('click', '#data_table button[data-action="delete"]', function () {
+  var selectedRow = $(this).attr("id");
+  let invoicess = new Invoices();
+  invoicess.deleteData(selectedRow);
+  $(this).parent().parent().remove();
+});
 
 
 
