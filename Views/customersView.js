@@ -29,6 +29,15 @@ function addOnPostEventListner(customer) {
   document.getElementById("customers-post").addEventListener("click", () => {
     let data = gatherPostInputData();
     customer.postData(data);
+    var responseStatus = getCookie("status");
+    console.log(responseStatus);
+    if (responseStatus == "201" || responseStatus == "204" || responseStatus == "200") {
+      toggleSuccessAlert();
+    }
+    else if (responseStatus == "400" || responseStatus == "401" || responseStatus == "402" ||
+      responseStatus == "404" || responseStatus == "500" || responseStatus == "501") {
+      toggleUnsuccessAlert()
+    }
   });
 }
 
@@ -40,6 +49,15 @@ function addOnUpdateEventListner(customer) {
     console.log("intra", data);
     console.log("id", id);
     customer.updateData(data, id);
+    var responseStatus = getCookie("status");
+    console.log(responseStatus);
+    if (responseStatus == "201" || responseStatus == "204" || responseStatus == "200") {
+      toggleSuccessAlert();
+    }
+    else if (responseStatus == "400" || responseStatus == "401" || responseStatus == "402" ||
+      responseStatus == "404" || responseStatus == "500" || responseStatus == "501") {
+      toggleUnsuccessAlert()
+    }
   });
 }
 
@@ -48,6 +66,15 @@ function addOnDeleteEventListner(customer) {
   document.getElementById("customers-delete").addEventListener("click", () => {
     let id = gatherDeleteInputdata();
     customer.deleteData(id);
+    var responseStatus = getCookie("status");
+    console.log(responseStatus);
+    if (responseStatus == "201" || responseStatus == "204" || responseStatus == "200") {
+      toggleSuccessAlert();
+    }
+    else if (responseStatus == "400" || responseStatus == "401" || responseStatus == "402" ||
+      responseStatus == "404" || responseStatus == "500" || responseStatus == "501") {
+      toggleUnsuccessAlert()
+    }
   });
 }
 
@@ -85,4 +112,40 @@ async function getAllCustomersNames() {
     html += ` <button type="button" id="${customers.items[i].Id}" class="list-group-item list-group-item-action">${customers.items[i].Name}</button>`;
   }
   $("#customer-list").append(html);
+}
+
+document.getElementById("close").addEventListener("click", () => {
+  var el = document.getElementById('bsalert');
+  el.className = 'd-none';
+});
+
+document.getElementById("danger-alert-close").addEventListener("click", () => {
+  var el = document.getElementById('danger-alert');
+  el.className = 'd-none';
+});
+
+function toggleSuccessAlert() {
+  var el = document.getElementById('bsalert');
+  el.className = 'alert alert-info';
+}
+
+function toggleUnsuccessAlert() {
+  var el = document.getElementById('danger-alert');
+  el.className = 'alert alert-danger';
+}
+
+function getCookie(cname) {
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for (var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
 }
