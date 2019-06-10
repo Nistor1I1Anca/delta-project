@@ -1,12 +1,9 @@
 window.onload = function () {
   var invoiceId = getUrlParameter("invoiceId");
-  console.log("is este fucking", invoiceId);
   var invoiceItemId = getUrlParameter("invoiceItemId");
-  console.log("is este fucking", invoiceItemId);
   getAllProducts();
   getAllInvoices();
   if (invoiceId != "" || invoiceItemId != "") {
-    console.log("este in edit");
     fetchItemDataOnEdit(invoiceId, invoiceItemId);
   }
   else {
@@ -23,7 +20,6 @@ async function fetchItemDataOnEdit(invoiceId, invoiceItemId) {
   // var productName = document.getElementById(productId).value;
   document.getElementById(productId).setAttribute('selected', '');
   document.getElementById(1).removeAttribute('selected');
-  console.log("quantity", invoiceItem.Quantity);
   document.getElementById("id-quantity").value = invoiceItem.Quantity;
   document.getElementById("id-price").value = invoiceItem.Price;
   document.getElementById("add-button").style.display = 'none';
@@ -33,7 +29,6 @@ function addANewInvoiceItem() {
   document.getElementById("update-button").style.display = 'none';
 
 }
-
 
 function editNewInvoiceItem() {
   document.getElementById("add-item-to-invoice-row").style.display = 'none';
@@ -92,7 +87,6 @@ $(document).on('click', '#update-button', function () {
 async function getItemById(invoiceId, invoiceItemId) {
   var invoiceItem = new InvoiceItem();
   await invoiceItem.fetchData(invoiceId, invoiceItemId);
-  console.log("invoiceItem",invoiceItem);
   return invoiceItem;
 }
 
@@ -110,7 +104,6 @@ async function getAllProducts() {
   await products.fetchData();
   html = ``;
   for (let i = 0; i < products.items.length; i++) {
-    console.log("products.items", products.items[i].Id);
     html += `<li>`;
     html += `<a href="#" class="products-items" id="${products.items[i].Id}">${products.items[i].Name}`;
     html += `</a></li>`;
@@ -121,10 +114,8 @@ async function getAllProducts() {
 async function getAllInvoices() {
   var invoices = new Invoices();
   await invoices.fetchData();
-  console.log(invoices);
   html = ``;
   for (let i = 0; i < invoices.items.length; i++) {
-    // console.log("products.items", invoices.items[i].Id);
     html += `<li>`;
     html += `<a href="#" class="invoices-items" id="${invoices.items[i].Id}">${invoices.items[i].Series}`;
     html += `</a></li>`;
@@ -139,63 +130,6 @@ $(document).on('click', '#add-item-dropdown li a', function () {
   var html = `<span class="caret" id = "arrow"></span>`;
   document.getElementById('add-item-to-invoice').innerHTML += html;
 });
-
-
-
-// $(document).on('click', '#update-button', function () {
-//   var invoiceItem = new InvoiceItem();
-//   // await invoiceItem.fetchData(invoiceId, invoiceItemId);
-//   // var 
-// });
-
-// function addOnSelectChangeEventListner(currentProduct) {
-//   document.getElementById("select").addEventListener("change", async () => {
-//     let currentProduct = document.getElementById("select").value;
-
-//     let invoiceItem = new InvoiceItem();
-//     await invoiceItem.fetchData(currentProduct);
-
-//     document.getElementById("id-quantity").placeholder = invoiceItem.Quantity;
-//     document.getElementById("id-quantity").value = invoiceItem.Quantity;
-
-//     document.getElementById("id-price").placeholder = invoiceItem.Price;
-//     document.getElementById("id-price").value = invoiceItem.Price;
-//   });
-// }
-
-// function addOnSaveClickEventLisnter() {
-//   let invoiceId = 8;  //de sters dupa ce avem un InvoiceId in URL   
-//   // document.getElementById("id-invoice").innerHTML = invoiceId;
-//   document.getElementById("submit-button").addEventListener("click", () => {
-//     let quantity = document.getElementById("id-quantity").value;
-//     let price = document.getElementById("id-price").value;
-//     let currentProduct = document.getElementById("select").value;
-//     console.log(currentProduct)
-
-//     data = {
-//       InvoiceId: invoiceId,
-//       Id: currentProduct,
-//       Quantity: quantity,
-//       Price: price,
-//       ProductId: 40,
-//       VAT: 5,
-
-//     };
-
-//     fetch("http://delta.apexcode.ro/api/invoices/" + invoiceId + "/items/" + currentProduct, {
-//       method: "PUT",
-//       body: JSON.stringify(data),
-//       mode: "cors",
-//       headers: {
-//         "Content-Type": "application/json",
-//         Accept: "application/json"
-//       }
-//     })
-//       .then(resp => resp.json())
-//       .then(jsonResp => console.log(jsonResp))
-//       .catch(e => alert(`post error: ${e}`));
-//   });
-// }
 
 function getUrlParameter(name) {
   name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");

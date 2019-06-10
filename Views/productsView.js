@@ -1,5 +1,5 @@
 window.onload = function() {
-  //getData();
+  getData();
 
   let product = new Product();
   addOnPostClickEventListner(product);
@@ -8,6 +8,7 @@ window.onload = function() {
   getAllProductNames()
 
   $(document).on('click', '#product-list button', function () {
+    // let supplier = new Supplier();
     var selectedProductId = $(this).attr("id");
     getProductById(selectedProductId, product);
   });
@@ -16,8 +17,6 @@ window.onload = function() {
 async function getData() {
   let products = new Products();
   await products.fetchData();
-  // console.log(products.items);
-  // console.log(products.items[1]);
 }
 
 async function getAllProductNames() {

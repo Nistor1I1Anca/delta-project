@@ -1,21 +1,17 @@
 window.onload = function () {
     var id = getUrlParameter("invoiceId");
-    console.log("is este fucking", id);
     if (id === null || id === "") {
-        console.log("id is null");
         getInvoiceDataForANewInvoice();
     }
     else {
         getInvoiceData(id);
         getAllInvoiceItems(id);
     }
-    console.log(id);
     getAllSuppliersNames();
     getAllCustomersNames();
 }
 
 $(function () {
-    console.log("intra sua ba");
     $("#footer").load("footer.html");
 });
 
@@ -25,8 +21,6 @@ async function getInvoiceDataForANewInvoice() {
 
     let suppliers = new Suppliers();
     await suppliers.fetchData();
-    console.log(suppliers);
-    console.log("ce trb", suppliers.items[0].SupplierId);
     document.getElementById('supplier').setAttribute("supplierId", suppliers.items[0].Id);
     document.getElementById('supplier').innerHTML = suppliers.items[0].Name;
     var html = `<span class="caret" id = "arrow"></span>`;
@@ -34,8 +28,6 @@ async function getInvoiceDataForANewInvoice() {
 
     let customers = new Customers();
     await customers.fetchData();
-    console.log(customers);
-    console.log(customers.items[0]);
     document.getElementById('customer-button').setAttribute("customerId", customers.items[0].Id);
     document.getElementById('customer-button').innerHTML = customers.items[0].Name;
     var html = `<span class="caret" id = "arrow"></span>`;
@@ -149,7 +141,6 @@ async function getAllInvoiceItems(id) {
 
 $(document).on('click', '#items-table .delete', function () {
     var selectedSupplierId = $(this).attr("id");
-    console.log(selectedSupplierId);
     let invoiceItem = new InvoiceItem();
     invoiceItem.deleteData(selectedSupplierId);
     $(this).parent().parent().remove();
@@ -206,7 +197,6 @@ function getUrlParameter(name) {
 $(document).on('click', 'a[data-action="edit"]', function () {
     var invoiceID = getUrlParameter("invoiceId");
     var invoiceItemId = $(this).attr("id");
-    console.log(invoiceItemId);
     var queryString = "?invoiceId=" + invoiceID + "&invoiceItemId=" + invoiceItemId;
     window.location.href = "invoiceItem.html" + queryString;
 });

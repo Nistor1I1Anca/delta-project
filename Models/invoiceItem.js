@@ -29,7 +29,6 @@ InvoiceItem.prototype.fetchData = async function (invoiceItem, invoiceItemId) {
 };
 
 InvoiceItem.prototype.postdata = async function (data, invoiceItemId) {
-
   await fetch("http://delta.apexcode.ro/api/invoices/" + invoiceItemId + "/items", {
     method: "POST",
     headers: { "Content-Type": "application/json", Accept: "application/json" },
@@ -51,7 +50,6 @@ InvoiceItem.prototype.deleteData = async function (id) {
 };
 
 InvoiceItem.prototype.updateData = async function (data, invoiceId, itemId) {
-  console.log("Body-ul este: " + JSON.stringify(data));
   await fetch("http://delta.apexcode.ro/api/invoices/" + invoiceId + "/items/" + itemId, {
     method: "PUT",
     headers: { "Content-Type": "application/json", Accept: "application/json" },

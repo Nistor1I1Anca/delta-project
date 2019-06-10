@@ -26,7 +26,6 @@ Invoices.prototype.fetchData = async function(){
 
             invoicesThis.items.push(invoiceModel);
         }
-        console.log("intra aici!");
     })
     .catch(function(e){
         alert('fetch error:' + e);

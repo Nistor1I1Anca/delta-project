@@ -1,5 +1,4 @@
 function setWelcome() {
-  console.log(1235);
   document.getElementById(
     "welcome"
   ).innerHTML = `<div class="jumbotron jumbotron-fluid">

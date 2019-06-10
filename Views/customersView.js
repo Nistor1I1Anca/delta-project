@@ -13,12 +13,10 @@ window.onload = function() {
     getCustomerById(selectedCustomerId);
   });
 };
-
 async function getData() {
   let customers = new Customers();
   await customers.fetchData();
 }
-
 async function getCustomerById(id) {
   let customer = new Customer();
   await customer.fetchData(id);
@@ -26,7 +24,6 @@ async function getCustomerById(id) {
   $("#customer-cui-add").val(customer.CUI);
   $("#customer-id-add").val(customer.Id);
 }
-
 // event de post new customer
 function addOnPostEventListner(customer) {
   document.getElementById("customers-post").addEventListener("click", () => {

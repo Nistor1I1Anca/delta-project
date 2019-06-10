@@ -32,15 +32,15 @@ function addOnPostEventListner(supplier) {
     // let response = supplier.postData(data)
   document.getElementById("suppliers-post").addEventListener("click", () => {
     let data = gatherPostInputData();
-<<<<<<< HEAD
     let response = supplier.postData(data);
     console.log("response: ", response);
     // document.cookie = "status=6";
-
-=======
-    supplier.postData(data);
-    console.log(supplier);
->>>>>>> 6300198c1fce1563b711a6f9b56fa2e086d7cdab
+    
+    
+    
+    
+    
+    
     toggleSuccessAlert();
   });
 }
@@ -59,25 +59,7 @@ function toggleSuccessAlert() {
 function gatherPostInputData() {
   let id = document.getElementById("supplier-id-add").value;
   let name = document.getElementById("supplier-name-add").value;
-<<<<<<< HEAD
-=======
   let CUI = document.getElementById("supplier-cui-add").value;
-  return {
-    id: id,
-    Name: name,
-    CUI: CUI
-  };
-}
-
-function gatherDeleteInputdata() {
-  return document.getElementById("supplier-id").value;
-}
-
-function gatherUpdateInputData() {
-  let id = document.getElementById("supplier-id").value;
-  let name = document.getElementById("supplier-name").value;
->>>>>>> 6300198c1fce1563b711a6f9b56fa2e086d7cdab
-  let CUI = document.getElementById("supplier-cui").value;
   return {
     id: id,
     Name: name,
@@ -90,7 +72,6 @@ function addOnUpdateEventListner(supplier) {
   document.getElementById("suppliers-update").addEventListener("click", () => {
     let data = gatherUpdateInputData();
     let id = document.getElementById("supplier-id").value;
-    console.log("id",id)
     supplier.updateData(data, id);
   });
 }
@@ -104,6 +85,9 @@ function addOnDeleteEventListner(supplier) {
   });
 }
 
+function gatherDeleteInputdata() {
+  return document.getElementById("supplier-id").value;
+}
 
 async function getAllSuppliersNames() {
   let suppliers = new Suppliers();
@@ -113,5 +97,17 @@ async function getAllSuppliersNames() {
     html += ` <button type="button" id="${suppliers.items[i].Id}" class="list-group-item list-group-item-action">${suppliers.items[i].Name}</button>`;
   }
   $("#supplier-list").append(html);
+}
+
+
+function gatherUpdateInputData() {
+  let supplierName = document.getElementById("supplier-name").value;
+  let supplierCUI = document.getElementById("supplier-cui").value;
+  let supplierId = document.getElementById("supplier-id").value;
+  return {
+    id: supplierId,
+    Name: supplierName,
+    CUI: supplierCUI
+  };
 }
 
