@@ -56,7 +56,17 @@ $(document).on('click', '#add-button', function () {
     InvoiceId: invoiceId,
     Product: product
   };
-  invoiceItemObject.postdata(invoiceItemAdd, invoiceId)
+  invoiceItemObject.postdata(invoiceItemAdd, invoiceId);
+  var responseStatus = getCookie("status");
+    console.log(responseStatus);
+    if (responseStatus == "201" || responseStatus == "204" || responseStatus == "200") {
+      toggleSuccessAlert();
+    }
+    else if (responseStatus == "400" || responseStatus == "401" || responseStatus == "402" ||
+      responseStatus == "404" || responseStatus == "500" || responseStatus == "501") {
+      toggleUnsuccessAlert()
+    }
+  // });
 });
 
 //update an existing item
@@ -81,7 +91,17 @@ $(document).on('click', '#update-button', function () {
     InvoiceId: invoiceId,
     Product: product
   };
-  invoiceItemObject.updateData(invoiceItemUpdate, invoiceId, invoiceItemId)
+  invoiceItemObject.updateData(invoiceItemUpdate, invoiceId, invoiceItemId);
+  var responseStatus = getCookie("status");
+    console.log(responseStatus);
+    if (responseStatus == 201) {
+      console.log("intra");
+      toggleSuccessAlert();
+    }
+    else if (responseStatus == "400" || responseStatus == "401" || responseStatus == "402" ||
+      responseStatus == "404" || responseStatus == "500" || responseStatus == "501") {
+      toggleUnsuccessAlert()
+    }
 });
 
 async function getItemById(invoiceId, invoiceItemId) {
@@ -139,3 +159,45 @@ function getUrlParameter(name) {
     ? ""
     : decodeURIComponent(results[1].replace(/\+/g, " "));
 }
+
+document.getElementById("close").addEventListener("click", () => {
+  var el = document.getElementById('bsalert');
+  el.style.visibility = "hidden";
+});
+
+document.getElementById("danger-alert-close").addEventListener("click", () => {
+  var el = document.getElementById('danger-alert');
+  el.style.visibility = "hidden";
+
+  // el.className = 'd-none';
+});
+
+function toggleSuccessAlert() {
+  var el = document.getElementById('bsalert');
+  el.style.visibility = "visible";
+  // .visibility = "hidden";
+}
+
+function toggleUnsuccessAlert() {
+  var el = document.getElementById('danger-alert');
+  el.style.visibility = "visible";
+
+  // el.className = 'alert alert-danger';
+}
+
+function getCookie(cname) {
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for (var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+

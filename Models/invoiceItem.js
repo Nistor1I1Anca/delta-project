@@ -34,8 +34,10 @@ InvoiceItem.prototype.postdata = async function (data, invoiceItemId) {
     headers: { "Content-Type": "application/json", Accept: "application/json" },
     body: JSON.stringify(data)
   })
-    .then(resp => resp.json())
-    .then(jsonResp => console.log(jsonResp))
+  .then(function (jsonResp) {
+    console.log("status", jsonResp.status);
+    document.cookie = "status=" + jsonResp.status;
+  })
     .catch(e => alert(`post error: ${e}`));
 };
 
@@ -44,8 +46,10 @@ InvoiceItem.prototype.deleteData = async function (id) {
   await fetch("http://delta.apexcode.ro/api/InvoiceItems/" + id, {
     method: "DELETE"
   })
-    .then(resp => resp.json())
-    .then(jsonResp => console.log(jsonResp))
+  .then(function (jsonResp) {
+    console.log("status", jsonResp.status);
+    document.cookie = "status=" + jsonResp.status;
+  })
     .catch(e => alert(`post error: ${e}`));
 };
 
@@ -55,6 +59,9 @@ InvoiceItem.prototype.updateData = async function (data, invoiceId, itemId) {
     headers: { "Content-Type": "application/json", Accept: "application/json" },
     body: JSON.stringify(data)
   })
-    .then(jsonResp => console.log(jsonResp))
+  .then(function (jsonResp) {
+    console.log("status", jsonResp.status);
+    document.cookie = "status=" + jsonResp.status;
+  })
     .catch(e => alert(`post error: ${e}`));
 };
